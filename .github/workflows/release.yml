@@ -35,7 +35,7 @@ jobs:
 
     - name: Create zip file excluding existing .zip files
       run: |
-          zip -r v${{ env.VERSION }}.zip ./archives \
+          zip -r v${{ env.VERSION }}.zip archives/. \
           -x ".zip" \
           -x ".git/" \
           -x ".git" \
