@@ -20,8 +20,14 @@ jobs:
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip .
 
-    - name: Checkout releases branch
-      run: git checkout -b releases origin/releases || git checkout releases
+    - name: Create and switch to releases branch if not exists
+      run: |
+        git fetch
+        if git show-ref --quiet refs/heads/releases; then
+          git checkout releases
+        else
+          git checkout -b releases
+        fi
 
     - name: Copy zip file to releases branch
       run: |
