@@ -27,12 +27,15 @@ jobs:
 
     - name: Checkout releases branch
       run: |
-        git stash
         git fetch origin
         git checkout releases
 
+    - name: Copy zip file to releases branch directory
+      run: cp v${{ env.VERSION }}.zip ./releases
+
     - name: Add and commit zip file to releases branch
       run: |
+        cd releases
         git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
         git add v${{ env.VERSION }}.zip
         git commit -m "Add new release zip v${{ env.VERSION }}"
