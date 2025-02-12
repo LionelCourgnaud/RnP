@@ -31,11 +31,7 @@ jobs:
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
     - name: Create zip file excluding existing .zip files
-      run: zip -r v${{ env.VERSION }}.zip . -x ".zip" ".git" ".git/*" ".git*"
-
-    - name: Delete all files except the new .zip file and .git directory
-      run: |
-        find . -type f ! -name "*.zip" -name ".gi*" -delete
+      run: zip -r v${{ env.VERSION }}.zip . -x ".zip" ".git" ".git/*"
 
     - name: Add and commit zip file to releases branch
       run: |
