@@ -1,4 +1,4 @@
-name: Create and Copy Zip to the Releases Branch
+name: Create and Copy Zip to Another Repository
 
 on:
   push:
@@ -25,16 +25,18 @@ jobs:
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip .
 
-    - name: Checkout releases branch
+    - name: Checkout RnP_Releases repository
       run: |
-        git fetch origin
-        git checkout releases
+        git clone https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/LionelCourgnaud/RnP_Releases.git
+        cd RnP_Releases
+        git checkout main
 
-    - name: Add and commit zip file to releases branch
+    - name: Copy and commit zip file to RnP_Releases repository
       run: |
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
+        cp v${{ env.VERSION }}.zip RnP_Releases/
+        cd RnP_Releases
         git add v${{ env.VERSION }}.zip
         git commit -m "Add new release zip v${{ env.VERSION }}"
-        git push origin releases
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
