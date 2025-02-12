@@ -1,0 +1,608 @@
+@font-face {
+  font-family: 'Tiller';
+  src: url('../assets/fonts/Tiller-Medium.woff2') format('woff2'),
+      url('../assets/fonts/Tiller-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiller';
+  src: url('../assets/fonts/Tiller-Demi.woff2') format('woff2'),
+      url('../assets/fonts/Tiller-Demi.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiller';
+  src: url('../assets/fonts/Tiller-Bold.woff2') format('woff2'),
+      url('../assets/fonts/Tiller-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiller';
+  src: url('../assets/fonts/Tiller-MediumItalic.woff2') format('woff2'),
+      url('../assets/fonts/Tiller-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiller';
+  src: url('../assets/fonts/Tiller-RegularItalic.woff2') format('woff2'),
+      url('../assets/fonts/Tiller-RegularItalic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Tiller';
+  src: url('../assets/fonts/Tiller-Regular.woff2') format('woff2'),
+      url('../assets/fonts/Tiller-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global styles */
+.window-app {
+  font-family: "Tiller", serif;
+}
+
+.window-app .window-header {
+  background: rgb(31 93 141);
+  border-radius: 5px 5px 0px 0px;
+}
+.window-app .window-content {
+  background: #ffffff;
+}
+
+form .form-group label {
+  line-height: var(--form-field-height);
+  font-weight: bold;
+  color: rgb(31 93 141);
+}
+
+.dialog .dialog-buttons button.default {
+  border: none;
+  background: rgb(31 93 141);
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 7px;
+}
+.dialog .dialog-buttons button.no {
+  background: rgb(110, 11, 11);
+}
+.dialog .dialog-buttons button {
+  border: none;
+  background: rgb(31 93 141);
+  color: #ffffff;
+  border-radius: 5px;
+  margin-top: 7px;
+}
+
+.window-app .window-header .window-title {
+  font-weight: 500;
+}
+
+
+.font-regular {
+  font-family: "Tiller", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-medium {
+  font-family: "Tiller", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-semibold {
+  font-family: "Tiller", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.font-bold {
+  font-family: "Tiller", serif;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.font-extra-bold {
+  font-family: "Tiller", serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.txt-display {
+  font-size: 0.8rem;
+}
+.txt-display-2 {
+  font-size: 0.9rem;
+}
+
+
+.txt-blue {
+  color: rgb(31 93 141);
+}
+.txt-white {
+  color: #ffffff;
+}
+.bg-blue {
+  background: rgb(31 93 141);
+}
+.bg-grey {
+  background: rgb(144 159 176);
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-start-3 {
+  grid-column-start: 3;
+}
+
+.grid-start-4 {
+  grid-column-start: 4;
+}
+
+.grid-start-5 {
+  grid-column-start: 5;
+}
+
+.grid-start-6 {
+  grid-column-start: 6;
+}
+
+.grid-start-7 {
+  grid-column-start: 7;
+}
+
+.grid-start-8 {
+  grid-column-start: 8;
+}
+
+.grid-start-9 {
+  grid-column-start: 9;
+}
+
+.grid-start-10 {
+  grid-column-start: 10;
+}
+
+.grid-start-11 {
+  grid-column-start: 11;
+}
+
+.grid-start-12 {
+  grid-column-start: 12;
+}
+
+.grid-span-2 {
+  grid-column-end: span 2;
+}
+
+.grid-span-3 {
+  grid-column-end: span 3;
+}
+
+.grid-span-4 {
+  grid-column-end: span 4;
+}
+
+.grid-span-5 {
+  grid-column-end: span 5;
+}
+
+.grid-span-6 {
+  grid-column-end: span 6;
+}
+
+.grid-span-7 {
+  grid-column-end: span 7;
+}
+
+.grid-span-8 {
+  grid-column-end: span 8;
+}
+
+.grid-span-9 {
+  grid-column-end: span 9;
+}
+
+.grid-span-10 {
+  grid-column-end: span 10;
+}
+
+.grid-span-11 {
+  grid-column-end: span 11;
+}
+
+.grid-span-12 {
+  grid-column-end: span 12;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flexshrink {
+  flex: 0;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flexlarge {
+  flex: 2;
+}
+
+.align-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.align-center {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Styles limited to cof sheets */
+.cof .item-form {
+  font-family: "Roboto", sans-serif;
+}
+.cof .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.cof .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+.cof .sheet-header .header-fields {
+  flex: 1;
+}
+.cof .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+.cof .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.cof .sheet-tabs {
+  flex: 0;
+}
+.cof .sheet-body,
+.cof .sheet-body .tab,
+.cof .sheet-body .tab .editor {
+  height: 100%;
+}
+.cof .tox .tox-editor-container {
+  background: #fff;
+}
+.cof .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.cof .resource-label {
+  font-weight: bold;
+}
+.cof .effects .item .effect-source,
+.cof .effects .item .effect-duration,
+.cof .effects .item .effect-controls {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.cof .effects .item .effect-controls {
+  border: none;
+}
+
+.item-list {
+  min-height: 300px;
+  width: 100%;
+}
+
+.cof-bg {
+  background: url('../assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: auto;
+  height: 1060px;
+  width: 750px;
+  margin: 0 auto;
+}
+
+.pa-10 {
+  padding: 10px;
+}
+.character-name {
+  text-align: center;
+}
+.character-name input{
+  width: 200px;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: rgb(31 93 141);
+}
+.carac {
+  width: 150px;
+  position: relative;
+}
+.item-drop {
+  width: 170px;
+  height: 74px;
+  margin-left: 20px;
+  margin-top: -19px;
+  color: rgb(31 93 141);
+}
+.desc-voie{
+  font-size: 0.7rem;
+}
+.drag {
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.desc-voie p {
+  margin: 0;
+}
+.title-voie {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.modificateur {
+  position: absolute;
+  right: 3px;
+  top: 2px;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+input.note {
+  border-color: rgb(144 159 176) !important;
+  font-size: 0.7rem;
+}
+.title-section {
+  font-size: 1.1rem;
+  color: rgb(31 93 141);
+  font-weight: bold;
+  border-bottom: 1px solid rgb(31 93 141);
+}
+.title-section.sub {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.title-section.lang {
+  margin-top: 29px;
+}
+.stats-wrap {
+  margin-top: 34px;
+}
+.carac div {
+  width: 42px;
+}
+
+.carac input {
+  width: 40px;
+}
+
+.stats-wrap input.rounded-1{
+  border: 2px solid rgb(144 159 176);
+}
+.stats .text {
+  font-weight: 500;
+  width: 100px;
+}
+
+.stats-bloc {
+  width: 100px;
+  position: relative;
+}
+
+.stats-bloc::before {
+  content: "";
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  z-index: 10;
+  border-radius: 100%;
+  left: -18px;
+  top: -1px;
+}
+.init.stats-bloc::before {
+  background: url(../assets/icons/initiative_b.png);
+  background-size: cover;
+}
+.def.stats-bloc::before {
+  background: url(../assets/icons/defense_b.png);
+  background-size: cover;
+}
+.vig.stats-bloc::before {
+  background: url(../assets/icons/vigueur_b.png);
+  background-size: cover;
+}
+.recup.stats-bloc::before {
+  background: url(../assets/icons/recup_b.png);
+  background-size: cover;
+}
+.chance.stats-bloc::before {
+  background: url(../assets/icons/chance_b.png);
+  background-size: cover;
+}
+.mana.stats-bloc::before {
+  background: url(../assets/icons/mana_b.png);
+  background-size: cover;
+}
+.stats-input-1 input, .stats-input-2 input {
+  border-right: 0 !important;
+}
+.stats-input-3 input:nth-child(1) {
+  border-right: 0 !important;
+  width: 130px;
+}
+.stats-input-3 input:nth-child(2) {
+  border-right: 0 !important;
+}
+.stats-input-2 input:nth-child(2) {
+  border-right: 2px solid rgb(144 159 176) !important;
+}
+.input-1 {
+  width: fit-content;
+}
+
+.stats-input-1 {
+  width: 50px;
+}
+.stats-input-3 {
+  width: 100px;
+}
+.stats-input-2 {
+  width: 100px;
+}
+.wrap-voie {
+  border: 2px solid rgb(144 159 176);
+  border-radius: 5px;
+  width: 200px;
+  height: 80px;
+  position: relative;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.wrap-voie .labelrank {
+  background: rgb(144 159 176);
+  width: 78px;
+  transform: translate(-31px, 28px) rotate(-90deg);
+  border-radius: 5px 5px 0px 0px;
+  font-size: 0.7rem;
+  padding: 2px;
+  color: #ffffff;
+}
+.wrap-voie .item-controls {
+  position: absolute;
+  right: 0px;
+  top: 29px;
+  z-index: -1;
+  opacity: 0;
+  transition: 0.3s;
+}
+.wrap-voie:hover .item-controls {
+  right: -16px;
+  opacity: 1;
+  z-index: 1;
+}
+.fa-trash {
+  color: rgb(110, 11, 11);
+}
