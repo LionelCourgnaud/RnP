@@ -1,0 +1,42 @@
+name: Create and Copy Zip to the Releases Branch
+
+on:
+  push:
+    branches:
+      - releases
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout releases branch
+      uses: actions/checkout@v2
+      with:
+        ref: releases
+
+    - name: Configure Git
+      run: |
+        git config --global user.email "lionel.courgnaud@gmail.com"
+        git config --global user.name "LionelCourgnaud"
+
+    - name: Merge main branch into releases
+      run: |
+        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
+        git fetch origin main
+        git merge origin/main
+
+    - name: Retrieve version from system.json
+      id: get_version
+      run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
+
+    - name: Create zip file
+      run: zip -r v${{ env.VERSION }}.zip .
+
+    - name: Add and commit zip file to releases branch
+      run: |
+        git add v${{ env.VERSION }}.zip
+        git commit -m "Add new release zip v${{ env.VERSION }}"
+        git push origin releases
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
