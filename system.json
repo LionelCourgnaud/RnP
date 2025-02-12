@@ -1,0 +1,44 @@
+{
+  "id": "COF2",
+  "title": "Chronique oubliées fantasy",
+  "description": "Chronique oubliées fantasy V2",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
+  },
+  "authors": [
+    {
+      "name": "Lucas",
+      "email": "luc.natale@gmail.com"
+    },
+    {
+      "name": "Lionel",
+      "email": ""
+    }
+  ],
+  "esmodules": [
+    "scripts/custom-system.js",
+    "scripts/init.js"
+  ],
+  "styles": [
+    "css/system-grid.css",
+    "css/main.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "socket": false,
+  "gridDistance": 1,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "resources.health",
+  "secondaryTokenAttribute": "resources.power",
+  "url": "https://github.com/votre-repo",
+  "manifest": "https://raw.githubusercontent.com/votre-repo/main/system.json",
+  "download": "https://github.com/votre-repo/archive/v1.0.0.zip"
+}
