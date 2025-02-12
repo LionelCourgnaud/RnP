@@ -1,7 +1,7 @@
 {
-  "id": "COF2",
-  "title": "Chronique oubliées fantasy",
-  "description": "Chronique oubliées fantasy V2",
+  "id": "RnP",
+  "title": "Rôle'n Play",
+  "description": "Rôle'n Play - Foundry System",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "12",
@@ -15,7 +15,7 @@
     },
     {
       "name": "Lionel",
-      "email": ""
+      "email": "lionel.courgnaud@gmail.com"
     }
   ],
   "esmodules": [
@@ -34,11 +34,9 @@
     }
   ],
   "socket": false,
-  "gridDistance": 1,
-  "gridUnits": "m",
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
-  "url": "https://github.com/votre-repo",
-  "manifest": "https://raw.githubusercontent.com/votre-repo/main/system.json",
-  "download": "https://github.com/votre-repo/archive/v1.0.0.zip"
+  "url": "https://github.com/LionelCourgnaud/RnP.git",
+  // "manifest": "https://raw.githubusercontent.com/votre-repo/main/system.json",
+  // "download": "https://github.com/votre-repo/archive/v1.0.0.zip"
 }
