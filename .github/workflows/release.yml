@@ -22,8 +22,13 @@ jobs:
       id: get_version
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
+    - name: install git
+      run : aptget install zip
+
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip .
+
+
 
     - name: Add and commit zip file to main branch
       run: |
