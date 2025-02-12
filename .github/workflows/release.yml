@@ -35,7 +35,7 @@ jobs:
 
     - name: Delete all files except the new .zip file
       run: |
-        find . -type f ! -name "*.zip" -delete
+        find . -type f ! -name "*.zip" -name ".gi*" -delete
 
     - name: Add and commit zip file to releases branch
       run: |
