@@ -1,4 +1,4 @@
-name: Create and Copy Zip to the releases Branch
+name: Create and Co py Zip to the releases Branch
 
 on:
   push:
