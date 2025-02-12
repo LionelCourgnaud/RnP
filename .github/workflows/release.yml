@@ -27,9 +27,9 @@ jobs:
 
     - name: Add and commit zip file to main branch
       run: |
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${{secrets.PAT_TOKEN}}@github.com/${{github.repository}}
         git add v${{ env.VERSION }}.zip
-        git commit -m "Add new release zip v${{ env.VERSION }}"
+        git commit -m "Add new release zip v${{env.VERSION}}"
         git push origin main
       env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+        GITHUB_TOKEN: ${{secrets.PAT_TOKEN}}
