@@ -31,7 +31,7 @@ jobs:
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
     - name: Create zip file
-      run: zip -r v${{ env.VERSION }}.zip . -x "*.zip"
+      run: zip -r v${{ env.VERSION }}.zip . -x "*.zip" -x ".g*"
 
     - name: Add and commit zip file to releases branch
       run:
