@@ -22,19 +22,15 @@ jobs:
       id: get_version
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
-    - name: install git
-      run : sudo apt-get install zip
-
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip .
 
 
-
     - name: Add and commit zip file to main branch
       run: |
-        git remote set-url origin https://x-access-token:${{secrets.PAT_TOKEN}}@github.com/${{github.repository}}
+        git remote set-url origin https://x-access-token:${{secrets.PAT-TOKEN}}@github.com/${{github.repository}}
         git add v${{ env.VERSION }}.zip
         git commit -m "Add new release zip v${{env.VERSION}}"
         git push origin main
       env:
-        GITHUB_TOKEN: ${{secrets.PAT_TOKEN}}
+        GITHUB_TOKEN: ${{secrets.PAT-TOKEN}}
