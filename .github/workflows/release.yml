@@ -1,4 +1,4 @@
-name: Create and Copy Zip to the Releases Branch
+name: Create and Copy Zip to the releases Branch
 
 on:
   push:
@@ -8,42 +8,54 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout releases branch
-      uses: actions/checkout@v2
-      with:
-        ref: releases
-        fetch-depth: 0
+      - name: Checkout releases branch
+        uses: actions/checkout@v2
+        with:
+          ref: releases
+          fetch-depth: 0
 
-    - name: Configure Git
-      run: |
-        git config --global user.email "lionel.courgnaud@gmail.com"
-        git config --global user.name "LionelCourgnaud"
+      - name: Configure Git
+        run: |
+          git config --global user.email "lionel.courgnaud@gmail.com"
+          git config --global user.name "LionelCourgnaud"
 
-    - name: Merge main branch into releases
-      run: |
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
-        git fetch origin main
-        git merge origin/main --allow-unrelated-histories
+      - name: Merge main branch into releases
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
+          git fetch origin main
+          git merge origin/main --allow-unrelated-histories
 
-    - name: Retrieve version from system.json
-      id: get_version
-      run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
+      - name: Retrieve version from system.json
+        id: get_version
+        run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
-    - name: Create temporary directory and copy files
-      run: |
-        mkdir temp_dir
-        rsync -av --progress . temp_dir/ --exclude .git --exclude .github --exclude "*.zip"
-        cd temp_dir
-        zip -r ../v${{ env.VERSION }}.zip .
-        cd ..
-        rm -rf temp_dir
+      - name: Create clean zip file
+        run: |
+          # Créer une liste de fichiers à inclure, en excluant explicitement .git et .github
+          find . -type f \
+          ! -path "./.git/*" \
+          ! -path "./.github/*" \
+          ! -path "./v*.zip" \
+          ! -name ".git*" \
+          ! -name ".DS_Store" \
+          > files_to_zip.txt
+          
+          # Afficher la liste pour vérification
+          echo "Files to be included in zip:"
+          cat files_to_zip.txt
+          
+          # Créer le zip en utilisant uniquement les fichiers listés
+          zip v${{ env.VERSION }}.zip -@ < files_to_zip.txt
+          
+          # Vérifier le contenu du zip
+          echo "Zip contents:"
+          unzip -l v${{ env.VERSION }}.zip
 
-    - name: Add and commit zip file to releases branch
-      run: |
-        git add v${{ env.VERSION }}.zip
-        git commit -m "Add new release zip v${{ env.VERSION }}"
-        git push origin releases
-      env:
-        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Add and commit zip file to releases branch
+        run: |
+          git add v${{ env.VERSION }}.zip
+          git commit -m "Add new release zip v${{ env.VERSION }}"
+          git push origin releases
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
