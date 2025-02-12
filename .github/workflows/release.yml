@@ -1,4 +1,4 @@
-name: Create and Copy Zip to Main Branch
+name: Create and Copy Zip to the Main Branch
 
 on:
   push:
