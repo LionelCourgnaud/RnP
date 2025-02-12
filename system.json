@@ -38,5 +38,5 @@
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/LionelCourgnaud/RnP.git",
   "manifest": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/main/system.json",
-  "download": "https://github.com/LionelCourgnaud/RnP/blob/cda54e6be1bd206cc190e1c91c521aadb8038a5d/v0.1.1.zip"
+  "download": "https://github.com/LionelCourgnaud/RnP/blob/main/v0.1.1.zip"
 }
