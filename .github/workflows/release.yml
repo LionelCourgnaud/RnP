@@ -1,4 +1,4 @@
-name: Create and Copy Zip to the Releases Branch
+name: Create and Copy Zip to the Release s Branch
 
 on:
   push:
