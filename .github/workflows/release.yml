@@ -24,7 +24,7 @@ jobs:
       run: |
         git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
         git fetch origin main
-        git merge origin/main
+        git merge origin/main --allow-unrelated-histories
 
     - name: Retrieve version from system.json
       id: get_version
