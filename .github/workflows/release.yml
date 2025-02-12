@@ -27,6 +27,7 @@ jobs:
 
     - name: Checkout releases branch
       run: |
+        git stash
         git fetch origin
         git checkout releases
 
