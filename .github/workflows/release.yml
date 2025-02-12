@@ -1,4 +1,4 @@
-name: Create and Copy Zip to the Release s Branch
+name: Create and Copy Zip to the Releases Branch
 
 on:
   push:
@@ -36,6 +36,9 @@ jobs:
     - name: Delete all files except the new .zip file
       run: |
         find . -type f ! -name "v${{ env.VERSION }}.zip" -delete
+
+    - name: Checkout the repository again
+      uses: actions/checkout@v2
 
     - name: Add and commit zip file to releases branch
       run: |
