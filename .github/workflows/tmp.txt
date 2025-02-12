@@ -1,3 +1,5 @@
+
+
 name: Create and Copy Zip to the Releases Branch
 
 on:
@@ -30,19 +32,20 @@ jobs:
       id: get_version
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
-    - name: Create zip file
+    - name: Create zip file excluding existing .zip files
       run: zip -r v${{ env.VERSION }}.zip . -x "*.zip"
 
     - name: Delete all files except the new .zip file
-      run:
+      run: |
         find . -type f ! -name "v${{ env.VERSION }}.zip" -delete
 
+    - name: Checkout the repository again
+      uses: actions/checkout@v2
+
     - name: Add and commit zip file to releases branch
-      run:
+      run: |
         git add v${{ env.VERSION }}.zip
         git commit -m "Add new release zip v${{ env.VERSION }}"
         git push origin releases
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
-
-
