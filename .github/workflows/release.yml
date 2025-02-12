@@ -36,8 +36,7 @@ jobs:
 
     - name: Copy zip file to releases branch
       run: |
+        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
         git add v${{ env.VERSION }}.zip
         git commit -m "Add new release zip v${{ env.VERSION }}"
         git push origin releases
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
