@@ -33,9 +33,9 @@ jobs:
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip . -x "*.zip"
 
-    - name: Delete all files except the new .zip file
-      run:
-        find . -type f ! -name "v${{ env.VERSION }}.zip" -delete
+    # - name: Delete all files except the new .zip file
+    #   run:
+    # find . -type f ! -name "v${{ env.VERSION }}.zip" -delete
 
     - name: Add and commit zip file to releases branch
       run:
