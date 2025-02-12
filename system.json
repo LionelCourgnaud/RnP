@@ -36,5 +36,7 @@
   "socket": false,
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
-  "url": "https://github.com/LionelCourgnaud/RnP.git"
+  "url": "https://github.com/LionelCourgnaud/RnP.git",
+  "manifest": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/main/system.json",
+  "download": "https://github.com/votre-repo/archive/v1.0.0.zip"
 }
