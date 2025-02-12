@@ -30,8 +30,23 @@ jobs:
       id: get_version
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
+    - name: Remove existing zip if exists
+      run: rm -f v${{ env.VERSION }}.zip
+
     - name: Create zip file excluding existing .zip files
-      run: zip -r -o v${{ env.VERSION }}.zip ./archives/ --exclude '.zip' '.git' '.git/' '.github/' '.gitignore' '.gitattributes'
+      run: |
+          zip -r v${{ env.VERSION }}.zip . \
+          -x ".zip" \
+          -x ".git/" \
+          -x ".git" \
+          -x ".github/" \
+          -x "packs/" \
+          -x ".DS_Store" \
+          -x ".lock" \
+          -x "node_modules/" \
+          -x "dist/" \
+          -x "cache/" \
+          -x "logs/"
 
     - name: Add and commit zip file to releases branch
       run: |
