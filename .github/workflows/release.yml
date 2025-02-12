@@ -1,4 +1,4 @@
-name: Create and Copy Zip to Releases Branch
+name: Create and Copy Zip to Main Branch
 
 on:
   push:
@@ -25,18 +25,10 @@ jobs:
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip .
 
-    - name: Create and switch to releases branch if not exists
+    - name: Add and commit zip file to main branch
       run: |
-        git fetch
-        if git show-ref --quiet refs/heads/releases; then
-          git checkout releases
-        else
-          git checkout -b releases
-        fi
-
-    - name: Copy zip file to releases branch
-      run: |
-        git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/${{ github.repository }}
         git add v${{ env.VERSION }}.zip
         git commit -m "Add new release zip v${{ env.VERSION }}"
-        git push origin releases
+        git push origin main
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
