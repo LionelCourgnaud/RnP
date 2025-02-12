@@ -23,7 +23,7 @@ jobs:
       run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
     - name: install git
-      run : aptget install zip
+      run : apt-get install zip
 
     - name: Create zip file
       run: zip -r v${{ env.VERSION }}.zip .
