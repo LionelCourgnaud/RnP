@@ -1,0 +1,13 @@
+{
+  "TYPES": {
+    "Actor": {
+      "character": "Personnage",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Objet",
+      "spell": "Sort",
+      "voie": "Voie"
+    }
+  }
+}
