@@ -2,11 +2,7 @@
   "id": "RnP",
   "title": "Rôle'n Play",
   "description": "Rôle'n Play - Foundry System",
-<<<<<<< HEAD
   "version": "0.1.6",
-=======
-  "version": "0.1.4",
->>>>>>> edda9cb (wip)
   "compatibility": {
     "minimum": "12",
     "verified": "12",
