@@ -1,58 +1,58 @@
-name: Create and Copy zip to the lucas Branch
+# name: Create and Copy zip to the lucas Branch
 
-on:
-  push:
-    branches:
-      - lucas
+# on:
+#   push:
+#     branches:
+#       - lucas
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout releases branch
-        uses: actions/checkout@v2
-        with:
-          ref: lucas
-          fetch-depth: 0
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout releases branch
+#         uses: actions/checkout@v2
+#         with:
+#           ref: lucas
+#           fetch-depth: 0
 
-      - name: Configure Git
-        run: |
-          git config --global user.email "l_natale@gmail.com"
-          git config --global user.name "lntl"
-      - name: Retrieve version from system.json
-        id: get_version
-        run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
+#       - name: Configure Git
+#         run: |
+#           git config --global user.email "l_natale@gmail.com"
+#           git config --global user.name "lntl"
+#       - name: Retrieve version from system.json
+#         id: get_version
+#         run: echo "VERSION=$(jq -r .version system.json)" >> $GITHUB_ENV
 
-      - name: Create clean zip file
-        run: |
-          find . -type f \
-          ! -path "./archives/*" \
-          ! -path "./archives" \
-          ! -path "./v*.zip" \
-          ! -path "./node_modules/*" \
-          ! -path "./.git/*" \
-          ! -path "./.github/*" \
-          ! -path "./dist/*" \
-          ! -name ".DS_Store" \
-          ! -name "*.log" \
-          -print > files_to_zip.txt
+#       - name: Create clean zip file
+#         run: |
+#           find . -type f \
+#           ! -path "./archives/*" \
+#           ! -path "./archives" \
+#           ! -path "./v*.zip" \
+#           ! -path "./node_modules/*" \
+#           ! -path "./.git/*" \
+#           ! -path "./.github/*" \
+#           ! -path "./dist/*" \
+#           ! -name ".DS_Store" \
+#           ! -name "*.log" \
+#           -print > files_to_zip.txt
 
-          # Afficher la liste pour vérification
-          echo "Files to be included in zip:"
-          cat files_to_zip.txt
+#           # Afficher la liste pour vérification
+#           echo "Files to be included in zip:"
+#           cat files_to_zip.txt
 
-          # Créer le zip en utilisant uniquement les fichiers listés
-          zip v${{ env.VERSION }}.zip -@ < files_to_zip.txt
+#           # Créer le zip en utilisant uniquement les fichiers listés
+#           zip v${{ env.VERSION }}.zip -@ < files_to_zip.txt
 
-          # Vérifier le contenu du zip
-          echo "Zip contents:"
-          unzip -l v${{ env.VERSION }}.zip
-          mv -f v${{ env.VERSION }}.zip ./archives/
-          git status
-      - name: Add and commit zip file to releases branch
-        run: |
-          git add archives/v${{ env.VERSION }}.zip
-          git commit -m "Add new release zip v${{ env.VERSION }}"
-          git push origin lucas
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+#           # Vérifier le contenu du zip
+#           echo "Zip contents:"
+#           unzip -l v${{ env.VERSION }}.zip
+#           mv -f v${{ env.VERSION }}.zip ./archives/
+#           git status
+#       - name: Add and commit zip file to releases branch
+#         run: |
+#           git add archives/v${{ env.VERSION }}.zip
+#           git commit -m "Add new release zip v${{ env.VERSION }}"
+#           git push origin lucas
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
