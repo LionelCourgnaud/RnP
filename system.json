@@ -42,9 +42,5 @@
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/LionelCourgnaud/RnP.git",
   "manifest": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/main/system.json",
-<<<<<<< HEAD
   "download": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/releases/archives/v0.1.6.zip"
-=======
-  "download": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/releases/v0.1.4.zip"
->>>>>>> edda9cb (wip)
 }
