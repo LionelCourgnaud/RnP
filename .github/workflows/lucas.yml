@@ -30,7 +30,11 @@ jobs:
           ! -path "./archives/*" \
           ! -path "./archives" \
           ! -path "./v*.zip" \
+          ! -path "./node_modules/*" \  # Exclure node_modules si présent
+          ! -path "./.git/*" \
+          ! -path "./.github/*" \
           ! -name ".DS_Store" \
+          ! -name "*.log" \  # Exclure les fichiers de log
           > files_to_zip.txt
 
           # Afficher la liste pour vérification
