@@ -1,9 +1,10 @@
-export class CustomItemSheet extends ItemSheet {            //ItemSheetV2
+export class CustomItemSheet extends ItemSheet {    
+
     static get defaultOptions() {
-        return mergeObject(super.defaultOptions, {
-            classes: ["cof", "sheet", "item"],
-            template: "systems/RnP/templates/item/item-sheet.hbs",
-            width: 520,
+        return foundry.utils.mergeObject(super.defaultOptions, {
+            classes: ["rnp", "sheet", "item"],
+            template: "systems/RnP/templates/item/objet-sheet.hbs",
+            width: 540,
             height: 480,
             tabs: [{
                 navSelector: ".sheet-tabs",
@@ -14,7 +15,7 @@ export class CustomItemSheet extends ItemSheet {            //ItemSheetV2
     }
 
     get template() {
-        const type = this.item.type;
+        const type = this.item.type.toLowerCase();
         return `systems/RnP/templates/item/${type}-sheet.hbs`;
     }
 
@@ -29,23 +30,36 @@ export class CustomItemSheet extends ItemSheet {            //ItemSheetV2
         context.dtypes = ["String", "Number", "Boolean"];
 
         // Ajout de données spécifiques selon le type
+        // 'objet', 'sort', 'capacite', 'don', 'aptitude'
         switch (this.item.type) {
-            case 'voie':
+            case 'Objet':
                 // Données spécifiques pour les voies
-                context.rangs = {
-                    rang1: context.system.rangs?.rang1 || {},
-                    rang2: context.system.rangs?.rang2 || {},
-                    rang3: context.system.rangs?.rang3 || {},
-                    rang4: context.system.rangs?.rang4 || {},
-                    rang5: context.system.rangs?.rang5 || {}
-                };
+                // context.rangs = {
+                //     rang1: context.system.rangs?.rang1 || {},
+                //     rang2: context.system.rangs?.rang2 || {},
+                //     rang3: context.system.rangs?.rang3 || {},
+                //     rang4: context.system.rangs?.rang4 || {},
+                //     rang5: context.system.rangs?.rang5 || {}
+                // };
+                console.log("************ OBJET ***************");
                 break;
-            case 'spell':
+            case 'Sort':
                 // Données spécifiques pour les sorts
+                console.log("************ SORT ***************");
+                console.log(context);
                 break;
-            case 'item':
+            case 'Capacité':
                 // Données spécifiques pour les items
+                console.log("************ CAPACITE ***************");
                 break;
+            case 'Don':
+                // Données spécifiques pour les items
+                console.log("************ DON ***************");
+            break;
+            case 'Aptitude':
+                // Données spécifiques pour les items
+                console.log("************ APTITUDE ***************");
+            break;
         }
 
         return context;

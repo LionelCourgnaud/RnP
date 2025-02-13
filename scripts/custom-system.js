@@ -8,9 +8,9 @@ CUSTOM_SYSTEM.rarityTypes = {
 };
 //Liste pour les types d'item
 CUSTOM_SYSTEM.itemTypes = {
-    item: "Objet",
-    spell: "Sort",
-    voie: "Voie"
+    objet: "Objet",
+    sort: "Sort",
+    capacite: "Capacité"
 };
 
 // Config des dés

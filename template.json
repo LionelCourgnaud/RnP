@@ -61,25 +61,30 @@
     }
   },
   "Item": {
-    "types": ["item", "spell", "voie"],
+    "types": ["Objet", "Sort", "Capacité", "Don", "Aptitude"],
     "templates": {
       "base": {
-        "description": "",
-        "quantity": 1,
-        "weight": 0,
-        "price": 0,
-        "rarity": "common"
+        "description": ""
       }
     },
-    "item": {
+    "objet": {
       "templates": ["base"]
     },
-    "voie": {
+    "sort": {
       "templates": ["base"],
-      "rank": 1,
-      "rang1": {
-        "name": ""
+      "niveau": 0,
+      "effet": {
+        "description": ""
       }
+    },
+    "capacite": {
+      "templates": ["base"]
+    },
+    "don": {
+      "templates": ["base"]
+    },
+    "aptitude": {
+      "templates": ["base"]
     }
   }
 }

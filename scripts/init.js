@@ -8,7 +8,7 @@ Hooks.once('init', async function() {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("RnP", CustomItemSheet, {
         makeDefault: true,
-        types: ['item', 'spell', 'voie']
+        types: ['Objet', 'Sort', 'Capacité', 'Don', 'Aptitude']
     });
     
 
