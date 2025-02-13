@@ -2,7 +2,7 @@ export class CustomActor extends ActorSheet {
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "actor"],
-            template: "systems/COF2/templates/actor/actor-sheet.hbs",
+            template: "systems/RnP/templates/actor/actor-sheet.hbs",
             width: 750,
             height: 600,
             tabs: [{

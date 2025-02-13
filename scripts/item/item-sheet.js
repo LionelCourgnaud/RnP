@@ -2,7 +2,7 @@ export class CustomItemSheet extends ItemSheet {            //ItemSheetV2
     static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
             classes: ["cof", "sheet", "item"],
-            template: "systems/COF2/templates/item/item-sheet.hbs",
+            template: "systems/RnP/templates/item/item-sheet.hbs",
             width: 520,
             height: 480,
             tabs: [{
