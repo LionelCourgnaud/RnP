@@ -13,6 +13,11 @@ export class CustomItemSheet extends ItemSheet {            //ItemSheetV2
         });
     }
 
+    get template() {
+        const type = this.item.type;
+        return `systems/RnP/templates/item/${type}-sheet.hbs`;
+    }
+
     async getData() {
         // Récupérer les données de base
         const context = await super.getData();
@@ -22,6 +27,26 @@ export class CustomItemSheet extends ItemSheet {            //ItemSheetV2
         context.config = CUSTOM_SYSTEM;
         // Ajouter les types de données pour les champs - optional
         context.dtypes = ["String", "Number", "Boolean"];
+
+        // Ajout de données spécifiques selon le type
+        switch (this.item.type) {
+            case 'voie':
+                // Données spécifiques pour les voies
+                context.rangs = {
+                    rang1: context.system.rangs?.rang1 || {},
+                    rang2: context.system.rangs?.rang2 || {},
+                    rang3: context.system.rangs?.rang3 || {},
+                    rang4: context.system.rangs?.rang4 || {},
+                    rang5: context.system.rangs?.rang5 || {}
+                };
+                break;
+            case 'spell':
+                // Données spécifiques pour les sorts
+                break;
+            case 'item':
+                // Données spécifiques pour les items
+                break;
+        }
 
         return context;
     }
