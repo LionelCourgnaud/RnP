@@ -32,14 +32,14 @@ jobs:
           ! -path "./v*.zip" \
           ! -name ".DS_Store" \
           > files_to_zip.txt
-          
+
           # Afficher la liste pour vérification
           echo "Files to be included in zip:"
           cat files_to_zip.txt
-          
+
           # Créer le zip en utilisant uniquement les fichiers listés
           zip v${{ env.VERSION }}.zip -@ < files_to_zip.txt
-          
+
           # Vérifier le contenu du zip
           echo "Zip contents:"
           unzip -l v${{ env.VERSION }}.zip
