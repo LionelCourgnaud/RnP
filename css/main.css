@@ -125,10 +125,10 @@ form .form-group label {
 }
 
 .txt-display {
-  font-size: 0.8rem;
+  font-size: 12px;
 }
 .txt-display-2 {
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 
@@ -430,7 +430,7 @@ form .form-group label {
   width: 200px;
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: 20px;
   font-weight: 600;
   color: rgb(31 93 141);
 }
@@ -446,7 +446,7 @@ form .form-group label {
   color: rgb(31 93 141);
 }
 .desc-voie{
-  font-size: 0.7rem;
+  font-size:11px;
 }
 .drag {
   text-align: center;
@@ -460,28 +460,28 @@ form .form-group label {
   margin: 0;
 }
 .title-voie {
-  font-size: 0.8rem;
+  font-size: 12px;
   font-weight: bold;
 }
 .modificateur {
   position: absolute;
   right: 3px;
   top: 2px;
-  font-size: 0.6rem;
+  font-size: 9px;
   font-weight: bold;
 }
 input.note {
   border-color: rgb(144 159 176) !important;
-  font-size: 0.7rem;
+  font-size: 10px;
 }
 .title-section {
-  font-size: 1.1rem;
+  font-size: 17px;
   color: rgb(31 93 141);
   font-weight: bold;
   border-bottom: 1px solid rgb(31 93 141);
 }
 .title-section.sub {
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 500;
 }
 .title-section.lang {
@@ -586,7 +586,7 @@ input.note {
   width: 78px;
   transform: translate(-31px, 28px) rotate(-90deg);
   border-radius: 5px 5px 0px 0px;
-  font-size: 0.7rem;
+  font-size: 11px;
   padding: 2px;
   color: #ffffff;
 }
