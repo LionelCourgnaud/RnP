@@ -1,4 +1,4 @@
-name: Create and Co py Zip to the releases Branch
+name: Create and Copy Zip to the releases Branch
 
 on:
   push:
@@ -51,6 +51,9 @@ jobs:
           # Vérifier le contenu du zip
           echo "Zip contents:"
           unzip -l v${{ env.VERSION }}.zip
+
+          #copy vers /archives
+          mv -f v${{ env.VERSION }}.zip ./archives/
 
       - name: Add and commit zip file to releases branch
         run: |
