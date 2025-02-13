@@ -47,7 +47,7 @@ jobs:
           # Vérifier le contenu du zip
           echo "Zip contents:"
           unzip -l v${{ env.VERSION }}.zip
-          mv -f v${{ env.VERSION }}.zip ./
+          mv -f v${{ env.VERSION }}.zip ./archives/
           git status
       - name: Add and commit zip file to releases branch
         run: |
