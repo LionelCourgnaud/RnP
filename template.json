@@ -12,6 +12,9 @@
       "sexe": "",
       "weight": "",
       "size": "",
+      "ideal": "",
+      "travers": "",
+      "lang": "",
       "attributes": {
         "force": {
           "value": 10,
