@@ -25,17 +25,17 @@ jobs:
 
       - name: Create clean zip file
         run: |
-          # Créer une liste de fichiers à inclure, en excluant explicitement .git et .github
           find . -type f \
           ! -path "./archives/*" \
           ! -path "./archives" \
           ! -path "./v*.zip" \
-          ! -path "./node_modules/*" \  # Exclure node_modules si présent
+          ! -path "./node_modules/*" \
           ! -path "./.git/*" \
           ! -path "./.github/*" \
+          ! -path "./dist/*" \
           ! -name ".DS_Store" \
-          ! -name "*.log" \  # Exclure les fichiers de log
-          > files_to_zip.txt
+          ! -name "*.log" \
+          -print > files_to_zip.txt
 
           # Afficher la liste pour vérification
           echo "Files to be included in zip:"
