@@ -2,7 +2,11 @@
   "id": "RnP",
   "title": "Rôle'n Play",
   "description": "Rôle'n Play - Foundry System",
+<<<<<<< HEAD
   "version": "0.1.6",
+=======
+  "version": "0.1.4",
+>>>>>>> edda9cb (wip)
   "compatibility": {
     "minimum": "12",
     "verified": "12",
@@ -38,5 +42,9 @@
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/LionelCourgnaud/RnP.git",
   "manifest": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/main/system.json",
+<<<<<<< HEAD
   "download": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/releases/archives/v0.1.6.zip"
+=======
+  "download": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/releases/v0.1.4.zip"
+>>>>>>> edda9cb (wip)
 }
