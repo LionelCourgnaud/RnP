@@ -10,6 +10,7 @@ Hooks.once('init', async function() {
         makeDefault: true,
         types: ['item', 'spell', 'voie']
     });
+    
 
     // Enregistrement des feuilles d'acteurs -- A FAIRE
     Actors.unregisterSheet("core", ActorSheet);
