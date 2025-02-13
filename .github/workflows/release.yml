@@ -58,7 +58,7 @@ jobs:
 
       - name: Add and commit zip file to releases branch
         run: |
-          git add v${{ env.VERSION }}.zip
+          git add archives/v${{ env.VERSION }}.zip
           git commit -m "Add new release zip v${{ env.VERSION }}"
           git push origin releases
         env:
