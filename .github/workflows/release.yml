@@ -35,6 +35,8 @@ jobs:
           # Créer une liste de fichiers à inclure, en excluant explicitement .git et .github
           find . -type f \
           ! -path "./.git/*" \
+          ! -path "./archives/*" \
+          ! -path "./archives" \
           ! -path "./.github/*" \
           ! -path "./v*.zip" \
           ! -name ".git*" \
@@ -53,7 +55,7 @@ jobs:
           unzip -l v${{ env.VERSION }}.zip
 
           #copy vers /archives
-          mv -f v${{ env.VERSION }}.zip ./archives/
+          mv -f v${{ env.VERSION }}.zip ./archives/v${{ env.VERSION }}.zip
 
       - name: Add and commit zip file to releases branch
         run: |
