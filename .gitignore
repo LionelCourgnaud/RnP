@@ -1,2 +1,3 @@
 # gitignore
 runApp.sh
+.DS_Store
