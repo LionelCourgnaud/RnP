@@ -606,3 +606,8 @@ input.note {
 .fa-trash {
   color: rgb(110, 11, 11);
 }
+.rounded-1.langfield {
+  border: 1px solid rgb(144 159 176) !important;
+  height: 104px;
+  font-family: 'Tiller';
+}
