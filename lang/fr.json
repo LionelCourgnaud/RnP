@@ -2,12 +2,14 @@
   "TYPES": {
     "Actor": {
       "character": "Personnage",
-      "npc": "NPC"
+      "npc": "PNJ"
     },
     "Item": {
-      "item": "Objet",
+      "object": "Objet",
       "spell": "Sort",
-      "voie": "Voie"
+      "capacity": "Capacité",
+      "don":"Don",
+      "aptitude":"Aptitude"
     }
   }
 }

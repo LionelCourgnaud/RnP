@@ -32,7 +32,7 @@ export class CustomItemSheet extends ItemSheet {
         // Ajout de données spécifiques selon le type
         // 'objet', 'sort', 'capacite', 'don', 'aptitude'
         switch (this.item.type) {
-            case 'Objet':
+            case 'object':
                 // Données spécifiques pour les voies
                 // context.rangs = {
                 //     rang1: context.system.rangs?.rang1 || {},
@@ -43,20 +43,20 @@ export class CustomItemSheet extends ItemSheet {
                 // };
                 console.log("************ OBJET ***************");
                 break;
-            case 'Sort':
+            case 'spell':
                 // Données spécifiques pour les sorts
                 console.log("************ SORT ***************");
-                console.log(context);
+                console.log(context.system);
                 break;
-            case 'Capacité':
+            case 'capacity':
                 // Données spécifiques pour les items
                 console.log("************ CAPACITE ***************");
                 break;
-            case 'Don':
+            case 'don':
                 // Données spécifiques pour les items
                 console.log("************ DON ***************");
             break;
-            case 'Aptitude':
+            case 'aptitude':
                 // Données spécifiques pour les items
                 console.log("************ APTITUDE ***************");
             break;

@@ -61,30 +61,30 @@
     }
   },
   "Item": {
-    "types": ["Objet", "Sort", "Capacité", "Don", "Aptitude"],
+    "types": ["object", "spell", "capacity", "don", "aptitude"],
     "templates": {
       "base": {
         "description": ""
       }
     },
-    "objet": {
-      "templates": ["base"]
+    "object": {
+      "name" : "Objet"
     },
-    "sort": {
-      "templates": ["base"],
+    "spell": {
+      "name" : "Sort",
       "niveau": 0,
       "effet": {
         "description": ""
       }
     },
-    "capacite": {
-      "templates": ["base"]
+    "capacity": {
+      "name" : "Capacité"
     },
     "don": {
-      "templates": ["base"]
+      "name" : "Don"
     },
     "aptitude": {
-      "templates": ["base"]
+      "name" : "Aptitude"
     }
   }
 }
