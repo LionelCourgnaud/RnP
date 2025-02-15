@@ -5,7 +5,7 @@ export class CustomItemSheet extends ItemSheet {
             classes: ["rnp", "sheet", "item"],
             template: "systems/RnP/templates/item/object-sheet.hbs",
             width: 600,
-            height: 480,
+            height: 600,
             tabs: [{
                 navSelector: ".sheet-tabs",
                 contentSelector: ".sheet-body",

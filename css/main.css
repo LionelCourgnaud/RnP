@@ -611,3 +611,13 @@ input.note {
   height: 104px;
   font-family: 'Tiller';
 }
+
+/* .form-select {
+  color: red;
+} */
+
+/* Style pour les options sélectionnées */
+select[multiple] option:checked {
+  color: white; /* Couleur du texte */
+  background-color: blue; /* Couleur de fond */
+}

@@ -9,32 +9,80 @@
     </header>
 
     <div>
+        <br><br>
+        <!-- <div class="form-group">
+            <label for="classes">Classe(s) :</label>
+            <div id="classes">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="classes" id="barde" value="barde">
+                <label class="form-check-label" for="barde">
+                  Barde
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="classes" id="magicien" value="magicien">
+                <label class="form-check-label" for="magicien">
+                  Magicien
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="classes" id="ensorceleur" value="ensorceleur">
+                <label class="form-check-label" for="ensorceleur">
+                  Ensorceleur
+                </label>
+              </div>
+            </div>
+          </div> -->
+
         <div class="form-group">
-            <label for="spelllevel">Niveau ({{system.spellLevel}})</label>
+            <label for="classes">Classe(s)</label>
+            <div id="system.classes">
+                {{#each config.classeTypes as |name val|}}
+                    <!-- {{this}} -->
+                    {{#if (inside ../system.classes val)}}
+                        <input class="form-check-input" type="checkbox" name="system.classes" id="{{name}}" value="{{val}}" checked>  
+                    {{else}}
+                        <input class="form-check-input" type="checkbox" name="system.classes" id="{{name}}" value="{{val}}"> 
+                    {{/if}}
+                    <label class="form-check-label">{{name}}</label> 
+                {{/each}}
+                <!-- {{#if (inside system.classes 10)}}ON{{/if}} -->
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="spelllevel">Niveau</label>
             <select name="system.spellLevel">
                 {{selectOptions config.spellLevels selected=system.spellLevel}}
             </select>
         </div>
         <div class="form-group">
-            <label for="duration">Durée ({{system.durationunit}})</label>
+            <label for="duration">Durée</label>
             <select name="system.durationunit">
                 {{selectOptions config.durationTypes selected=system.durationunit}}
             </select>
         </div>
+        <div class="form-group">
+            <label for="incantation">Temps d'incantation</label>
+        </div>
         <div class="form-group incant">
-            <label for="incantation">Temps d'incantation ({{system.incantation}})</label>
+            {{#if (eq system.incantation 30)}}
+            <input type="number" name="system.incantationtimemins" value="{{system.incantationtimemins}}" data-dtype="Number"/>
+            {{/if}}
             <select name="system.incantation">
                 {{selectOptions config.incantationTimes selected=system.incantation}}
             </select>
         </div>
-        <div class="entry">
-            <p>item.system.incantationtimemins : {{system.incantationtimemins}}</p>
-            {{#if (eq system.incantation 30)}}
-            <label>Temps d'incantation (mins)</label>
-            <input type="number" name="system.incantationtimemins" value="{{system.incantationtimemins}}" data-dtype="Number"/>
-            {{/if}}
-        </div>
     </div>
+
+    <br><br>
+    <!-- DEBUG -->
+    <div><label for="classes"> ============================================ </label></div>
+    <div><label for="classes">Classe(s) : {{system.classes}}</label></div>
+    <div><label for="spelllevel">Niveau : {{system.spellLevel}}</label></div>
+    <div><label for="spelllevel">Durée : {{system.durationunit}}</label></div>
+    <div><label for="incantation">Temps d'incantation : {{system.incantation}}</label></div>
+    <div><label for="classes"> ============================================ </label></div>
+    <br><br>
 
     <!-- {{!-- Onglets --}}
     <nav class="sheet-tabs tabs" data-group="primary">
