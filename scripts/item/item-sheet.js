@@ -3,7 +3,7 @@ export class CustomItemSheet extends ItemSheet {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["rnp", "sheet", "item"],
-            template: "systems/RnP/templates/item/objet-sheet.hbs",
+            template: "systems/RnP/templates/item/object-sheet.hbs",
             width: 540,
             height: 480,
             tabs: [{
@@ -19,7 +19,13 @@ export class CustomItemSheet extends ItemSheet {
         return `systems/RnP/templates/item/${type}-sheet.hbs`;
     }
 
-    async getData() {
+    // // Calculer le modificateur de force
+    // const forceValue = context.actor.system.attributes.force.value;
+    // // console.log(context.actor.system);
+    // context.actor.system.attributes.force.mod = CUSTOM_SYSTEM.utils.calculateModifier(forceValue);
+
+    async getData() 
+    {
         // Récupérer les données de base
         const context = await super.getData();
         // S'assurer que nous avons un objet system
@@ -31,22 +37,19 @@ export class CustomItemSheet extends ItemSheet {
 
         // Ajout de données spécifiques selon le type
         // 'objet', 'sort', 'capacite', 'don', 'aptitude'
-        switch (this.item.type) {
+        switch (this.item.type) 
+        {
             case 'object':
-                // Données spécifiques pour les voies
-                // context.rangs = {
-                //     rang1: context.system.rangs?.rang1 || {},
-                //     rang2: context.system.rangs?.rang2 || {},
-                //     rang3: context.system.rangs?.rang3 || {},
-                //     rang4: context.system.rangs?.rang4 || {},
-                //     rang5: context.system.rangs?.rang5 || {}
-                // };
                 console.log("************ OBJET ***************");
                 break;
             case 'spell':
                 // Données spécifiques pour les sorts
                 console.log("************ SORT ***************");
                 console.log(context.system);
+                if(context.system.incantation != 3) {
+                    context.system.incantationtimemins = 0;
+                }
+                console.log("************ SORT ***************");
                 break;
             case 'capacity':
                 // Données spécifiques pour les items

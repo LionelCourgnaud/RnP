@@ -71,11 +71,14 @@
       "name" : "Objet"
     },
     "spell": {
-      "name" : "Sort",
-      "niveau": 0,
-      "effet": {
-        "description": ""
-      }
+      "name" : "Nom du Sort",
+      "spellLevel": 0,
+      "incantation" : 0,
+      "incantationtimemins" : 0,
+      "classes" : [],
+      "effect" : "",
+      "range" : 0,
+      "damages" : "D?"
     },
     "capacity": {
       "name" : "Capacité"

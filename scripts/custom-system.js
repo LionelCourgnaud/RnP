@@ -1,28 +1,33 @@
 window.CUSTOM_SYSTEM = {};
 //Liste pour les raretés pour item-sheet.hbs
-CUSTOM_SYSTEM.rarityTypes = {
-    common: "Commun",
-    uncommon: "Peu commun",
-    rare: "Rare",
-    legendary: "Légendaire"
-};
-//Liste pour les types d'item
-CUSTOM_SYSTEM.itemTypes = {
-    objet: "Objet",
-    sort: "Sort",
-    capacite: "Capacité"
+CUSTOM_SYSTEM.incantationTime = {
+    0: "1 Action",
+    1: "Action Bonus",
+    2: "Instantanné",
+    3: "Minutes..."
 };
 
-// Config des dés
-CUSTOM_SYSTEM.diceTypes = {
-    d4: "d4",
-    d6: "d6",
-    d8: "d8",
-    d10: "d10",
-    d12: "d12",
-    d20: "d20",
-    d100: "d100"
+CUSTOM_SYSTEM.spellLevel = {
+    0: "Tour de Magie",
+    1: "Niveau 1",
+    2: "Niveau 2",
+    3: "Niveau 3",
+    4: "Niveau 4",
+    5: "Niveau 5",
+    6: "Niveau 6",
+    7: "Niveau 7",
+    8: "Niveau 8",
+    9: "Niveau 9"
 };
+
+
+
+CUSTOM_SYSTEM.classeTypes = {
+    0 : "Ensorceleur",
+    1: "Barde",
+    2: "Magicien"
+};
+
 
 // Helpers pour le système
 CUSTOM_SYSTEM.utils = {

@@ -9,18 +9,25 @@
     </header>
 
     <div>
-        <h3>Niveau</h3>
-        <p>{{item.system.rarity}}</p>
-        <h3>Temps d'incantation</h3>
-        <h3>Durée</h3>
-        <h3>Portée</h3>
-        <h3>Cible</h3>
-        <h3>Composantes</h3>
-        <h3>Dégats</h3>
-        <h3>Sauvegarde</h3>
-        <h3>Apparence</h3>
-        <h3>Effet</h3>
-        <h3>Evolution</h3>
+        <div class="form-group">
+            <label for="spelllevel">Niveau ({{system.spellLevel}})</label>
+            <select name="system.spellLevel">
+                {{selectOptions config.spellLevel selected=system.spellLevel}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="incantation">Temps d'incantation ({{system.incantation}})</label>
+            <select name="system.incantation">
+                {{selectOptions config.incantationTime selected=system.incantation}}
+            </select>
+        </div>
+        <div class="entry">
+            <p>item.system.incantationtimemins : {{system.incantationtimemins}}</p>
+            {{#if (eq system.incantation 3)}}
+            <label>Temps d'incantation (mins)</label>
+            <input type="number" name="system.incantationtimemins" value="{{system.incantationtimemins}}" data-dtype="Number"/>
+            {{/if}}
+        </div>
     </div>
 
     <!-- {{!-- Onglets --}}

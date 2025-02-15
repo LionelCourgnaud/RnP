@@ -1,8 +1,13 @@
 import { CustomActor } from "./actor/actor-sheet.js";
 import { CustomItemSheet } from "./item/item-sheet.js";
+import { registerHandlebarsHelpers } from "./helpers.js";
 
-Hooks.once('init', async function() {
+Hooks.once('init', async function() 
+{
     console.log('RnP | Initialisation du système');
+
+    // Register HB Helpers
+    registerHandlebarsHelpers();
 
     // Enregistrement des feuilles d'items
     Items.unregisterSheet("core", ItemSheet);
@@ -27,5 +32,4 @@ Hooks.once('init', async function() {
         type: String,
         default: ""
     });
-
 });
