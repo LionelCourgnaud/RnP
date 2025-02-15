@@ -43,24 +43,15 @@ export class CustomItemSheet extends ItemSheet {
                 console.log("************ OBJET ***************");
                 break;
             case 'spell':
-                // Données spécifiques pour les sorts
-                console.log("************ SORT ***************");
-                console.log(context.system);
-                if(context.system.incantation != 30) {
-                    context.system.incantationtimemins = 0;
-                }
                 console.log("************ SORT ***************");
                 break;
             case 'capacity':
-                // Données spécifiques pour les items
                 console.log("************ CAPACITE ***************");
                 break;
             case 'don':
-                // Données spécifiques pour les items
                 console.log("************ DON ***************");
             break;
             case 'aptitude':
-                // Données spécifiques pour les items
                 console.log("************ APTITUDE ***************");
             break;
         }
@@ -74,7 +65,9 @@ export class CustomItemSheet extends ItemSheet {
         if (!this.isEditable) return;
         // Ajouter des écouteurs d'événements si nécessaire
         html.find('.item-edit').click(this._onItemEdit.bind(this));
-        html.find('.incant').on('change', this._onChange.bind(this));
+        html.find('.incant').on('change', this._onIncantChange.bind(this));
+        html.find('.classe-click').click(this._onClassEdit.bind(this));
+        html.find('.componants').on('change', this._onComponantsChange.bind(this));
     }
 
     _onItemEdit(event) {
@@ -82,7 +75,29 @@ export class CustomItemSheet extends ItemSheet {
         event.preventDefault();
     }
 
-    async _onChange(event) {
+    async _onClassEdit(event) 
+    {
+        const context = await this.getData();
+        // console.log(context.item.system.classes);
+        let currentClasses = context.item.system.classes;
+        if(!currentClasses.includes(event.currentTarget.value)) {
+            currentClasses.push(event.currentTarget.value);
+        } else {
+            currentClasses = currentClasses.filter(item => item != event.currentTarget.value.toString());
+        }      
+        
+        await this.item.update({
+            "system.classes" : currentClasses
+        })
+        event.preventDefault();
+    }
+
+    async _onComponantsChange(event) {
+        console.log(event);
+        event.preventDefault();
+    }
+
+    async _onIncantChange(event) {
         if(this.item.system.incantation != 30)
         {
             await this.item.update({

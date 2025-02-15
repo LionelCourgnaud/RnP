@@ -80,7 +80,10 @@
       "classes" : [],
       "effect" : "",
       "range" : 0,
-      "damages" : "D?"
+      "damages" : "",
+      "visual" : "",
+      "limits" : "",
+      "componants" : []
     },
     "capacity": {
       "name" : "Capacité"
