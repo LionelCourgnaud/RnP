@@ -75,6 +75,8 @@
       "spellLevel": 0,
       "incantation" : 0,
       "incantationtimemins" : 0,
+      "duration" : 0,
+      "durationunit" : 0,
       "classes" : [],
       "effect" : "",
       "range" : 0,

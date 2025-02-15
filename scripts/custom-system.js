@@ -1,13 +1,28 @@
 window.CUSTOM_SYSTEM = {};
-//Liste pour les raretés pour item-sheet.hbs
-CUSTOM_SYSTEM.incantationTime = {
-    0: "1 Action",
-    1: "Action Bonus",
-    2: "Instantanné",
-    3: "Minutes..."
+
+// --------------------------
+//  Liste pour les sorts
+// --------------------------
+CUSTOM_SYSTEM.classeTypes = {
+    0: "Barde",
+    10: "Clerc",
+    20: "Druide",
+    30: "Ensorceleur",
+    40: "Magicien",
+    50: "Ombrelame",
+    60: "Paladin",
+    70: "Rôdeur",
+    80: "Sorcier"
 };
 
-CUSTOM_SYSTEM.spellLevel = {
+CUSTOM_SYSTEM.incantationTimes = {
+    0: "1 Action",
+    10: "Action Bonus",
+    20: "Instantanné",
+    30: "Minutes"
+};
+
+CUSTOM_SYSTEM.spellLevels = {
     0: "Tour de Magie",
     1: "Niveau 1",
     2: "Niveau 2",
@@ -20,13 +35,15 @@ CUSTOM_SYSTEM.spellLevel = {
     9: "Niveau 9"
 };
 
-
-
-CUSTOM_SYSTEM.classeTypes = {
-    0 : "Ensorceleur",
-    1: "Barde",
-    2: "Magicien"
+CUSTOM_SYSTEM.durationTypes = {
+    0: "instantané",
+    5: "round(s)",
+    10: "minute(s)",
+    20: "heure(s)",
+    30: "jour(s)",
+    90: "Jusqu'à dissipation"
 };
+
 
 
 // Helpers pour le système

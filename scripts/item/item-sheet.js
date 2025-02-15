@@ -4,7 +4,7 @@ export class CustomItemSheet extends ItemSheet {
         return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["rnp", "sheet", "item"],
             template: "systems/RnP/templates/item/object-sheet.hbs",
-            width: 540,
+            width: 600,
             height: 480,
             tabs: [{
                 navSelector: ".sheet-tabs",
@@ -46,7 +46,7 @@ export class CustomItemSheet extends ItemSheet {
                 // Données spécifiques pour les sorts
                 console.log("************ SORT ***************");
                 console.log(context.system);
-                if(context.system.incantation != 3) {
+                if(context.system.incantation != 30) {
                     context.system.incantationtimemins = 0;
                 }
                 console.log("************ SORT ***************");
@@ -74,10 +74,21 @@ export class CustomItemSheet extends ItemSheet {
         if (!this.isEditable) return;
         // Ajouter des écouteurs d'événements si nécessaire
         html.find('.item-edit').click(this._onItemEdit.bind(this));
+        html.find('.incant').on('change', this._onChange.bind(this));
     }
 
     _onItemEdit(event) {
         console.log("Édition d'item");
+        event.preventDefault();
+    }
+
+    async _onChange(event) {
+        if(this.item.system.incantation != 30)
+        {
+            await this.item.update({
+                "system.incantationtimemins" : 0
+            })
+        }
         event.preventDefault();
     }
 
