@@ -10,7 +10,7 @@
 
     <div>
         <br><br>
-
+        <!-- CLASSES -->
         <div class="form-group">
             <label for="classes">Classe(s)</label>
             <div id="classes">
@@ -25,18 +25,21 @@
                 {{/each}}
             </div>
         </div>
+        <!-- NIVEAU -->
         <div class="form-group">
             <label for="spelllevel">Niveau</label>
             <select name="system.spellLevel">
                 {{selectOptions config.spellLevels selected=system.spellLevel}}
             </select>
         </div>
+        <!-- DUREE -->
         <div class="form-group">
             <label for="duration">Durée</label>
             <select name="system.durationunit">
                 {{selectOptions config.durationTypes selected=system.durationunit}}
             </select>
         </div>
+        <!-- COMPOSANTS -->
         <div class="form-group"> 
             <label for="components">Composant(s)</label>
             <div id="components">
@@ -51,10 +54,12 @@
                 {{/each}}
             </div>
         </div>
+        <!-- DOMMAGES -->
         <div class="form-group">
             <label for="damages">Dommages</label>
             <input type="text" name="system.damages" id="damages" value="{{system.damages}}">
         </div>
+        <!-- TEMPS D'INCANTATIONS -->
         <div class="form-group incant">
             <label for="incantation">Temps d'incantation</label>
             {{#if (eq system.incantation 30)}}
@@ -64,14 +69,17 @@
                 {{selectOptions config.incantationTimes selected=system.incantation}}
             </select>
         </div>
+        <!-- APPARENCE -->
         <div class="form-group">
             <label for="system.visual">Apparence :</label><br>
             <textarea class="form-textarea" id="system.visual" name="system.visual" rows="4" cols="50">{{system.visual}}</textarea>
         </div>
+        <!-- EFFET -->
         <div class="form-group">
             <label for="system.effect">Effet :</label><br>
             <textarea class="form-textarea" id="system.effect" name="system.effect" rows="6" cols="50">{{system.effect}}</textarea>
         </div>
+        <!-- LIMITATION -->
         <div class="form-group">
             <label for="system.limits">Limitation :</label><br>
             <textarea class="form-textarea" id="system.limits" name="system.limits" rows="6" cols="50">{{system.limits}}</textarea>
