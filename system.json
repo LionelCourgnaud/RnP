@@ -33,6 +33,10 @@
       "path": "lang/fr.json"
     }
   ],
+  "grid": {
+      "distance": 5,
+      "units": "m"
+  },
   "socket": false,
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",

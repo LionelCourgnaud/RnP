@@ -75,18 +75,22 @@
       "spellLevel": 0,
       "incantation" : 0,
       "incantationtimemins" : 0,
-      "duration" : 0,
-      "durationunit" : 0,
+      "durationtype" : "",
+      "durationvalue" : 0,
+      "durationunit" : "",
+      "concentration" : 0,
       "classes" : [],
       "effect" : "",
-      "range" : 0,
+      "rangetype" : "",
+      "rangevalue" : "",
       "rangeunit" : "",
       "area" : "",
       "damages" : "",
       "visual" : "",
       "limits" : "",
       "components" : [],
-      "componentslist" : ""
+      "componentslist" : "",
+      "componentscost" : 0
     },
     "capacity": {
       "name" : "Capacité"
