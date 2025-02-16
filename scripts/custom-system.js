@@ -15,6 +15,12 @@ CUSTOM_SYSTEM.classeTypes = {
     80: "Sorcier"
 };
 
+CUSTOM_SYSTEM.componentsTypes = {
+    0: "Vocal",
+    10: "Somatique",
+    20: "Matériel"
+}
+
 CUSTOM_SYSTEM.incantationTimes = {
     0: "1 Action",
     10: "Action Bonus",

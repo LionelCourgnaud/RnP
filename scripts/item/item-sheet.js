@@ -67,7 +67,7 @@ export class CustomItemSheet extends ItemSheet {
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.incant').on('change', this._onIncantChange.bind(this));
         html.find('.classe-click').click(this._onClassEdit.bind(this));
-        html.find('.componants').on('change', this._onComponantsChange.bind(this));
+        html.find('.component-click').click(this._onComponentsEdit.bind(this));
     }
 
     _onItemEdit(event) {
@@ -92,8 +92,19 @@ export class CustomItemSheet extends ItemSheet {
         event.preventDefault();
     }
 
-    async _onComponantsChange(event) {
-        console.log(event);
+    async _onComponentsEdit(event) {
+
+        const context = await this.getData();
+        let currentComponents = context.item.system.components;
+        if(!currentComponents.includes(event.currentTarget.value)) {
+            currentComponents.push(event.currentTarget.value);
+        } else {
+            currentComponents = currentComponents.filter(item => item != event.currentTarget.value.toString());
+        }      
+        
+        await this.item.update({
+            "system.components" : currentComponents
+        })
         event.preventDefault();
     }
 
