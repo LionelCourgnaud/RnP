@@ -2,7 +2,6 @@
 export const registerHandlebarsHelpers = () => {
     // Egalité
     Handlebars.registerHelper('eq', function(v1, ...v2) {
-        console.log("IN");
         let nbValues = v2.length-1;
         let result = false;
         for(let i=0;i<nbValues;i++) {
