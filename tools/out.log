@@ -1,0 +1,118 @@
+┌─────────┬─────────────────┬────────────────────────────────────────┐
+│ (index) │ 0               │ 1                                      │
+├─────────┼─────────────────┼────────────────────────────────────────┤
+│ 0       │ 'Tour de magie' │ 'Aspersion acide'                      │
+│ 1       │ 'Tour de magie' │ 'Assistance'                           │
+│ 2       │ 'Tour de magie' │ 'Aura du héros'                        │
+│ 3       │ 'Tour de magie' │ 'Bouffée de poison'                    │
+│ 4       │ 'Tour de magie' │ 'Contact glacial'                      │
+│ 5       │ 'Tour de magie' │ 'Druidisme'                            │
+│ 6       │ 'Tour de magie' │ 'Produire une flamme'                  │
+│ 7       │ 'Tour de magie' │ 'Rayon de givre'                       │
+│ 8       │ 'Tour de magie' │ 'Réparation'                           │
+│ 9       │ 'Tour de magie' │ 'Résistance'                           │
+│ 10      │ 'Tour de magie' │ 'Thaumaturgie'                         │
+│ 11      │ 'Tour de magie' │ 'Trait de feu'                         │
+│ 12      │ '1'             │ 'Communication avec les animaux'       │
+│ 13      │ '1'             │ 'Compréhension des langues'            │
+│ 14      │ '1'             │ 'Couleurs dansantes'                   │
+│ 15      │ '1'             │ 'Déguisement'                          │
+│ 16      │ '1'             │ 'Détection de la magie'                │
+│ 17      │ '1'             │ 'Détection du mal et du bien'          │
+│ 18      │ '1'             │ 'Image silencieuse'                    │
+│ 19      │ '1'             │ 'Injonction'                           │
+│ 20      │ '1'             │ 'Instrument fantomatique'              │
+│ 21      │ '1'             │ 'Léger comme une plume'                │
+│ 22      │ '1'             │ 'Lueurs féériques'                     │
+│ 23      │ '1'             │ 'Mains brûlantes'                      │
+│ 24      │ '1'             │ 'Serviteur invisible'                  │
+│ 25      │ '1'             │ 'Simulacre de vie'                     │
+│ 26      │ '1'             │ 'Soin des blessures'                   │
+│ 27      │ '1'             │ 'Sommeil'                              │
+│ 28      │ '1'             │ 'Strangulation'                        │
+│ 29      │ '1'             │ 'Texte illusoire'                      │
+│ 30      │ '2'             │ 'Chauffer le métal'                    │
+│ 31      │ '2'             │ 'Collet magique'                       │
+│ 32      │ '2'             │ 'Compagnon animal'                     │
+│ 33      │ '2'             │ 'Corde enchantée'                      │
+│ 34      │ '2'             │ 'Déblocage'                            │
+│ 35      │ '2'             │ 'Dessiccation'                         │
+│ 36      │ '2'             │ 'Localiser des animaux ou des plantes' │
+│ 37      │ '2'             │ 'Localiser un objet'                   │
+│ 38      │ '2'             │ 'Messager animal'                      │
+│ 39      │ '2'             │ 'Modifier son apparence'               │
+│ 40      │ '2'             │ 'Offrande inéluctable'                 │
+│ 41      │ '2'             │ 'Ombres imaginaires'                   │
+│ 42      │ '2'             │ 'Ténèbres'                             │
+│ 43      │ '2'             │ 'Trouver les pièges'                   │
+│ 44      │ '2'             │ 'Trouver une monture'                  │
+│ 45      │ '2'             │ 'Verrou magique'                       │
+│ 46      │ '2'             │ 'Vision dans le noir'                  │
+│ 47      │ '2'             │ 'Zone de vérité'                       │
+│ 48      │ '3'             │ 'Communication avec les plantes'       │
+│ 49      │ '3'             │ 'Contresort'                           │
+│ 50      │ '3'             │ 'Croissance végétale'                  │
+│ 51      │ '3'             │ 'Dissipation de la magie'              │
+│ 52      │ '3'             │ 'Éclair'                               │
+│ 53      │ '3'             │ 'Envoi de message'                     │
+│ 54      │ '3'             │ 'Lumière du jour'                      │
+│ 55      │ '3'             │ 'Monture fantôme'                      │
+│ 56      │ '3'             │ 'Mot de guérison de groupe'            │
+│ 57      │ '3'             │ 'Motif hypnotique'                     │
+│ 58      │ '3'             │ 'Mur de vent'                          │
+│ 59      │ '3'             │ 'Nuage puant'                          │
+│ 60      │ '4'             │ 'Bouclier de feu'                      │
+│ 61      │ '4'             │ 'Chien de garde'                       │
+│ 62      │ '4'             │ 'Coffre secret'                        │
+│ 63      │ '4'             │ 'Compulsion'                           │
+│ 64      │ '4'             │ 'Confusion'                            │
+│ 65      │ '4'             │ 'Divination'                           │
+│ 66      │ '4'             │ 'Métamorphose'                         │
+│ 67      │ '4'             │ 'Mur de feu'                           │
+│ 68      │ '4'             │ 'Nimbe de bienfaisance'                │
+│ 69      │ '4'             │ 'Œil magique'                          │
+│ 70      │ '4'             │ 'Panacée'                              │
+│ 71      │ '4'             │ 'Peau de pierre'                       │
+│ 72      │ '5'             │ 'Communion avec la nature'             │
+│ 73      │ '5'             │ 'Communion'                            │
+│ 74      │ '5'             │ 'Cône de froid'                        │
+│ 75      │ '5'             │ 'Contacter un autre plan'              │
+│ 76      │ '5'             │ 'Contagion'                            │
+│ 77      │ '5'             │ 'Coquille antivie'                     │
+│ 78      │ '5'             │ 'Mur de force'                         │
+│ 79      │ '5'             │ 'Mur de pierre'                        │
+│ 80      │ '5'             │ 'Nuage mortel'                         │
+│ 81      │ '5'             │ 'Nuée de projectiles'                  │
+│ 82      │ '5'             │ 'Passage par les arbres'               │
+│ 83      │ '5'             │ 'Rappel à la vie'                      │
+│ 84      │ '6'             │ 'Contingence'                          │
+│ 85      │ '6'             │ 'Convocation instantanée'              │
+│ 86      │ '6'             │ 'Danse irrésistible'                   │
+│ 87      │ '6'             │ 'Déplacer la terre'                    │
+│ 88      │ '6'             │ 'Désintégration'                       │
+│ 89      │ '6'             │ 'Festin des héros'                     │
+│ 90      │ '6'             │ 'Protections et sceaux'                │
+│ 91      │ '6'             │ 'Rayon de soleil'                      │
+│ 92      │ '6'             │ 'Sphère glacée'                        │
+│ 93      │ '6'             │ 'Suggestion de groupe'                 │
+│ 94      │ '6'             │ 'Transport végétal'                    │
+│ 95      │ '6'             │ 'Trouver un chemin'                    │
+│ 96      │ '7'             │ 'Régénération'                         │
+│ 97      │ '7'             │ 'Résurrection'                         │
+│ 98      │ '7'             │ 'Séquestration'                        │
+│ 99      │ '7'             │ 'Simulacre'                            │
+│ 100     │ '7'             │ 'Symbole'                              │
+│ 101     │ '7'             │ 'Téléportation'                        │
+│ 102     │ '8'             │ 'Mot de pouvoir étourdissant'          │
+│ 103     │ '8'             │ 'Nuage incendiaire'                    │
+│ 104     │ '8'             │ 'Tempête de sable'                     │
+│ 105     │ '8'             │ 'Tremblement de terre'                 │
+│ 106     │ '9'             │ 'Arrêt du temps'                       │
+│ 107     │ '9'             │ 'Changement de forme'                  │
+│ 108     │ '9'             │ 'Tempête vengeresse'                   │
+│ 109     │                 │                                        │
+│ 110     │                 │                                        │
+│ 111     │                 │                                        │
+│ 112     │                 │                                        │
+│ 113     │                 │                                        │
+└─────────┴─────────────────┴────────────────────────────────────────┘
