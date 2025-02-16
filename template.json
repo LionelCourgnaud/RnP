@@ -73,11 +73,10 @@
     "spell": {
       "name" : "Nom du Sort",
       "spellLevel": 0,
-      "incantation" : 0,
-      "incantationtimemins" : 0,
+      "incantationtype" : "",
+      "incantationvalue" : 0,
       "durationtype" : "",
       "durationvalue" : 0,
-      "durationunit" : "",
       "concentration" : 0,
       "classes" : [],
       "effect" : "",

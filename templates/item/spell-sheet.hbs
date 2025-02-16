@@ -33,10 +33,14 @@
             </select>
         </div>
         <!-- DUREE -->
-        <div class="form-group">
+        <div class="form-group duration">
             <label for="duration">Durée</label>
-            <select name="system.durationunit">
-                {{selectOptions config.durationTypes selected=system.durationunit}}
+            <!-- 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)" -->
+            {{#if (eq system.durationtype 5 10 20 30)}}
+                <input type="number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
+            {{/if}}
+            <select name="system.durationtype">
+                {{selectOptions config.durationTypes selected=system.durationtype}}
             </select>
         </div>
         <!-- COMPOSANTS -->
@@ -62,11 +66,12 @@
         <!-- TEMPS D'INCANTATIONS -->
         <div class="form-group incant">
             <label for="incantation">Temps d'incantation</label>
-            {{#if (eq system.incantation 30)}}
-            <input type="number" name="system.incantationtimemins" value="{{system.incantationtimemins}}" data-dtype="Number"/>
+            <!-- 25: "heure(s)"",30: "minute(s)",32: "round(s)", -->
+            {{#if (eq system.incantationtype 25 30 32)}}
+                <input type="number" name="system.incantationvalue" value="{{system.incantationvalue}}" data-dtype="Number"/>
             {{/if}}
-            <select name="system.incantation">
-                {{selectOptions config.incantationTimes selected=system.incantation}}
+            <select name="system.incantationtype">
+                {{selectOptions config.incantationTypes selected=system.incantationtype}}
             </select>
         </div>
         <!-- APPARENCE -->
@@ -88,14 +93,14 @@
 
     <br><br>
     <!-- DEBUG -->
-    <!-- <div><label for="classes"> ============================================ </label></div>
+    <div><label for="classes"> ============================================ </label></div>
     <div><label for="classes">Classe(s) : {{system.classes}}</label></div>
     <div><label for="spelllevel">Niveau : {{system.spellLevel}}</label></div>
-    <div><label for="spelllevel">Durée : {{system.durationunit}}</label></div>
-    <div><label for="incantation">Temps d'incantation : {{system.incantation}}</label></div>
+    <div><label for="spelllevel">Durée : {{system.durationtype}}</label></div>
+    <div><label for="incantation">Temps d'incantation :  type {{system.incantationtype}}  value {{system.incantationvalue}}</label></div>
     <div><label for="components">Composants : {{system.components}}</label></div>
     <div><label for="classes"> ============================================ </label></div>
-    <br><br>  -->
+    <br><br> 
 
     <!-- {{!-- Onglets --}}
     <nav class="sheet-tabs tabs" data-group="primary">

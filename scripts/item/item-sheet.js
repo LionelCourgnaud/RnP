@@ -5,7 +5,7 @@ export class CustomItemSheet extends ItemSheet {
             classes: ["rnp", "sheet", "item"],
             template: "systems/RnP/templates/item/object-sheet.hbs",
             width: 600,
-            height: 600,
+            height: 750,
             tabs: [{
                 navSelector: ".sheet-tabs",
                 contentSelector: ".sheet-body",
@@ -66,6 +66,7 @@ export class CustomItemSheet extends ItemSheet {
         // Ajouter des écouteurs d'événements si nécessaire
         html.find('.item-edit').click(this._onItemEdit.bind(this));
         html.find('.incant').on('change', this._onIncantChange.bind(this));
+        html.find('.duration').on('change', this._onDurationChange.bind(this));
         html.find('.classe-click').click(this._onClassEdit.bind(this));
         html.find('.component-click').click(this._onComponentsEdit.bind(this));
     }
@@ -93,7 +94,6 @@ export class CustomItemSheet extends ItemSheet {
     }
 
     async _onComponentsEdit(event) {
-
         const context = await this.getData();
         let currentComponents = context.item.system.components;
         if(!currentComponents.includes(event.currentTarget.value)) {
@@ -101,21 +101,37 @@ export class CustomItemSheet extends ItemSheet {
         } else {
             currentComponents = currentComponents.filter(item => item != event.currentTarget.value.toString());
         }      
-        
         await this.item.update({
             "system.components" : currentComponents
         })
         event.preventDefault();
     }
 
-    async _onIncantChange(event) {
-        if(this.item.system.incantation != 30)
+    async _onDurationChange(event) {
+        // 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)"
+        if(this.item.system.durationtype != 5 
+            && this.item.system.durationtype != 10 
+            && this.item.system.durationtype != 20
+            && this.item.system.durationtype != 30)
         {
             await this.item.update({
-                "system.incantationtimemins" : 0
+                "system.durationvalue" : 0
             })
         }
-        event.preventDefault();
+        event.preventDefault(); 
+    }
+
+    async _onIncantChange(event) {
+        // 25: "heure(s)"",30: "minute(s)",32: "round(s)",
+        if(this.item.system.incantationtype != 30 
+            && this.item.system.incantationtype != 25 
+            && this.item.system.incantationtype != 32)
+        {
+            await this.item.update({
+                "system.incantationvalue" : 0
+            })
+        }
+        event.preventDefault(); 
     }
 
     async _onItemDelete(event) {        // to test

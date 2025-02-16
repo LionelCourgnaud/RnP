@@ -21,11 +21,14 @@ CUSTOM_SYSTEM.componentsTypes = {
     20: "Matériel"
 }
 
-CUSTOM_SYSTEM.incantationTimes = {
-    0: "1 Action",
-    10: "Action Bonus",
-    20: "Instantanné",
-    30: "Minutes"
+CUSTOM_SYSTEM.incantationTypes = {
+    0: "1 action",
+    10: "action bonus",
+    15: "1 Réaction",
+    20: "instantanné",
+    25: "heure(s)",
+    30: "minute(s)",
+    32: "round(s)",
 };
 
 CUSTOM_SYSTEM.spellLevels = {
@@ -47,7 +50,10 @@ CUSTOM_SYSTEM.durationTypes = {
     10: "minute(s)",
     20: "heure(s)",
     30: "jour(s)",
-    90: "Jusqu'à dissipation"
+    40: "permanent",
+    90: "Jusqu'à dissipation",
+    95: "jusqu’à dissipation ou déclenchement",
+    100: "jusqu'à la fin du prochain tour du lanceur"
 };
 
 
