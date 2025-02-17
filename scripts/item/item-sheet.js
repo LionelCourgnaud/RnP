@@ -59,6 +59,7 @@ export class CustomItemSheet extends ItemSheet {
         return context;
     }
     
+    // Listeners - capte les classes HTML + callback
     activateListeners(html) {
         super.activateListeners(html);
         // Activer les écouteurs uniquement si la feuille est éditable
@@ -71,28 +72,29 @@ export class CustomItemSheet extends ItemSheet {
         html.find('.component-click').click(this._onComponentsEdit.bind(this));
     }
 
+    // Callback .item-edit (click)
     _onItemEdit(event) {
         console.log("Édition d'item");
         event.preventDefault();
     }
 
+    // Callback .classe-click (click)
     async _onClassEdit(event) 
     {
         const context = await this.getData();
-        // console.log(context.item.system.classes);
         let currentClasses = context.item.system.classes;
         if(!currentClasses.includes(event.currentTarget.value)) {
             currentClasses.push(event.currentTarget.value);
         } else {
             currentClasses = currentClasses.filter(item => item != event.currentTarget.value.toString());
         }      
-        
         await this.item.update({
             "system.classes" : currentClasses
         })
         event.preventDefault();
     }
 
+    // Callback .component-click (click)
     async _onComponentsEdit(event) {
         const context = await this.getData();
         let currentComponents = context.item.system.components;
@@ -107,6 +109,7 @@ export class CustomItemSheet extends ItemSheet {
         event.preventDefault();
     }
 
+    // Callback .duration (change)
     async _onDurationChange(event) {
         // 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)"
         if(this.item.system.durationtype != 5 
@@ -121,6 +124,7 @@ export class CustomItemSheet extends ItemSheet {
         event.preventDefault(); 
     }
 
+    // Callback .incantation (change)
     async _onIncantChange(event) {
         // 25: "heure(s)"",30: "minute(s)",32: "round(s)",
         if(this.item.system.incantationtype != 30 
@@ -134,6 +138,7 @@ export class CustomItemSheet extends ItemSheet {
         event.preventDefault(); 
     }
 
+    // Callback ?? (??)
     async _onItemDelete(event) {        // to test
         console.log("onItemDelete");
         event.preventDefault();
