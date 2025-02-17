@@ -19,11 +19,6 @@ export class CustomItemSheet extends ItemSheet {
         return `systems/RnP/templates/item/${type}-sheet.hbs`;
     }
 
-    // // Calculer le modificateur de force
-    // const forceValue = context.actor.system.attributes.force.value;
-    // // console.log(context.actor.system);
-    // context.actor.system.attributes.force.mod = CUSTOM_SYSTEM.utils.calculateModifier(forceValue);
-
     async getData() 
     {
         // Récupérer les données de base
@@ -115,8 +110,7 @@ export class CustomItemSheet extends ItemSheet {
         if(this.item.system.durationtype != 5 
             && this.item.system.durationtype != 10 
             && this.item.system.durationtype != 20
-            && this.item.system.durationtype != 30)
-        {
+            && this.item.system.durationtype != 30) {
             await this.item.update({
                 "system.durationvalue" : 0
             })
@@ -129,8 +123,7 @@ export class CustomItemSheet extends ItemSheet {
         // 25: "heure(s)"",30: "minute(s)",32: "round(s)",
         if(this.item.system.incantationtype != 30 
             && this.item.system.incantationtype != 25 
-            && this.item.system.incantationtype != 32)
-        {
+            && this.item.system.incantationtype != 32) {
             await this.item.update({
                 "system.incantationvalue" : 0
             })

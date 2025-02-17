@@ -125,5 +125,5 @@ Hooks.on("chatMessage", (message, html, data) => {
 
 
 Hooks.on("updateItem", (item, changes, options, userId) => {
-    console.log('mise à jour d\'un item', item, changes, userId )
+    console.log('Mise à jour d\'un item : '+item.name, "\nUser ID : " ,userId, "\n== item ==", item, "\n== changes ==\n", changes )
 });
