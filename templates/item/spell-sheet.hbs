@@ -1,4 +1,5 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
+    
     <header class="sheet-header">
         <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
         <div class="header-fields">
@@ -9,6 +10,8 @@
     </header>
 
     <div>
+        {{system.preview}}
+        <button class="preview">switch btn</button>
         <br><br>
         <!-- APPARENCE -->
         <div class="form-group">
@@ -16,20 +19,38 @@
             <textarea class="form-textarea" id="system.visual" name="system.visual" rows="4" cols="50">{{system.visual}}</textarea>
         </div>
         <!-- CLASSES -->
-        <div class="form-group">
+        <div class="container">
+            <div class="d-flex">
+                <div class="col-5 p-0">
+                    <label for="classes">Classe(s)</label>
+                </div>
+                <div class="col-7 p-0 d-flex flex-wrap">
+                    {{#each config.classeTypes as |name val|}}
+                        <div class="d-flex">
+                            <!-- {{this}} -->
+                            <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" {{isChecked ../system.classes val}}>
+                            <label class="form-check-label">{{name}}</label> 
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{!-- <div class="form-group">
             <label for="classes">Classe(s)</label>
             <div id="classes">
                 {{#each config.classeTypes as |name val|}}
-                    <!-- {{this}} -->
-                    {{#if (inside ../system.classes val)}}
-                        <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" checked>  
-                    {{else}}
-                        <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}"> 
-                    {{/if}}
-                    <label class="form-check-label">{{name}}</label> 
+                    <div class="d-flex">
+                        <!-- {{this}} -->
+                        {{#if (inside ../system.classes val)}}
+                            <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" checked>  
+                        {{else}}
+                            <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}"> 
+                        {{/if}}
+                        <label class="form-check-label">{{name}}</label> 
+                    </div>
                 {{/each}}
             </div>
-        </div>
+        </div> --}}
         <!-- NIVEAU -->
         <div class="form-group">
             <label for="spelllevel">Niveau</label>

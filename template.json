@@ -92,7 +92,8 @@
       "limits" : "",
       "components" : [],
       "componentslist" : "",
-      "componentscost" : 0
+      "componentscost" : 0,
+      "preview": false
     },
     "capacity": {
       "name" : "Capacité"
