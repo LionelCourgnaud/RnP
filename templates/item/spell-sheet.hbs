@@ -11,17 +11,20 @@
     <div>
         <br><br>
         <div class="container">
-            <div class="align-items-end">
-                <button class="preview">
-                    {{#if system.preview}}
+            <div>
+                <div class="col-11 p-0">
+                    <button class="preview col-1">
+                        {{#if system.preview}}
                         <img src="systems/RnP/assets/icons/edit/feather.png" alt="Editer" class="button-image">
-                    {{else}}
+                        {{else}}
                         <img src="systems/RnP/assets/icons/edit/scroll.png" alt="Editer" class="button-image">
-                    {{/if}}
-                </button>
+                        {{/if}}
+                    </button>
+                </div>
             </div>
         </div>
-        <br><br>
+    </div>
+    <br><br>
         <!-- APPARENCE -->
         <div class="form-group">
             <label for="system.visual">Apparence :</label><br>

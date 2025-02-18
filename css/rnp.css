@@ -11,3 +11,11 @@
     border: none; /* Supprime les bordures par défaut du bouton */
     display: block; /* Assure que l'image est affichée en tant que bloc */
 }
+
+/* .preview:hover {
+  border: none;
+} */
+
+button:hover {
+  border: none;
+}
