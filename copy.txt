@@ -1,26 +1,54 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
-    <header class="sheet-header">
-        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
-        <div class="header-fields">
-            <h1 class="charname">
-                <input name="name" type="text" value="{{item.name}}" placeholder="Nom de l'objet"/>
-            </h1>
-        </div>
-    </header>
+custom-system.js ====
 
-    <div>
-        <br><br>
-        <div class="container">
-            <div class="align-items-end">
-                <button class="preview">
-                    {{#if system.preview}}
-                        <img src="systems/RnP/assets/icons/edit/feather.png" alt="Editer" class="button-image">
-                    {{else}}
-                        <img src="systems/RnP/assets/icons/edit/scroll.png" alt="Editer" class="button-image">
-                    {{/if}}
-                </button>
-            </div>
-        </div>
+Hooks.on("closeItemSheet", (item, html) => {
+    item.object.system.preview = !item.object.system.preview;
+});
+
+helpers.js ====
+
+Handlebars.registerHelper("inc", function(value) {
+    return parseInt(value) + 1;
+});
+
+Handlebars.registerHelper("eqmod", function(value, modulo) {
+    return (parseInt(value) % modulo) === 0;
+});
+Handlebars.registerHelper("eqnotmod", function(value, modulo) {
+    return (parseInt(value) % modulo) != 0;
+});
+
+Handlebars.registerHelper('isChecked', function(array, value) {
+    return (Array.isArray(array) && array.includes(value)) ? "checked" : "";
+});
+
+item-sheet.js ===
+        
+        
+// Listeners - capte les classes HTML + callback
+activateListeners(html) {
+    super.activateListeners(html);
+    // Activer les écouteurs uniquement si la feuille est éditable
+    if (!this.isEditable) return;
+    // Ajouter des écouteurs d'événements si nécessaire
+    html.find('.item-edit').click(this._onItemEdit.bind(this));
+    html.find('.incant').on('change', this._onIncantChange.bind(this));
+    html.find('.duration').on('change', this._onDurationChange.bind(this));
+    html.find('.classe-click').click(this._onClassEdit.bind(this));
+    html.find('.component-click').click(this._onComponentsEdit.bind(this));
+    html.find('.preview').click(this._togglePreview.bind(this));
+    
+}
+
+_togglePreview(event) {
+    console.log(this.item.system.preview)
+    this.item.update({"system.preview": !this.item.system.preview})
+}
+
+hbs ===
+        
+        
+        {{system.preview}}
+        <button class="preview">switch btn</button>
         <br><br>
         <!-- APPARENCE -->
         <div class="form-group">
@@ -28,21 +56,6 @@
             <textarea class="form-textarea" id="system.visual" name="system.visual" rows="4" cols="50">{{system.visual}}</textarea>
         </div>
         <!-- CLASSES -->
-        <div class="form-group">
-            <label for="classes">Classe(s)</label>
-            <div id="classes">
-                {{#each config.classeTypes as |name val|}}
-                    <!-- {{this}} -->
-                    {{#if (inside ../system.classes val)}}
-                        <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" checked>  
-                    {{else}}
-                        <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}"> 
-                    {{/if}}
-                    <label class="form-check-label">{{name}}</label> 
-                {{/each}}
-            </div>
-        </div>
-
         <div class="container">
             <div class="d-flex">
                 <div class="col-5 p-0">
@@ -59,12 +72,12 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="form-group">
+        {{!-- <div class="form-group">
             <label for="classes">Classe(s)</label>
             <div id="classes">
                 {{#each config.classeTypes as |name val|}}
                     <div class="d-flex">
-                         {{this}} //
+                        <!-- {{this}} -->
                         {{#if (inside ../system.classes val)}}
                             <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" checked>  
                         {{else}}
@@ -74,7 +87,7 @@
                     </div>
                 {{/each}}
             </div>
-        </div>-->
+        </div> --}}
         <!-- NIVEAU -->
         <div class="form-group">
             <label for="spelllevel">Niveau</label>
@@ -135,15 +148,3 @@
             <textarea class="form-textarea" id="system.limits" name="system.limits" rows="6" cols="50">{{system.limits}}</textarea>
         </div>
     </div>
-
-    <br><br>
-    <!-- DEBUG -->
-    <!-- <div><label for="classes"> ============================================ </label></div>
-    <div><label for="classes">Classe(s) : {{system.classes}}</label></div>
-    <div><label for="spelllevel">Niveau : {{system.spellLevel}}</label></div>
-    <div><label for="spelllevel">Durée : {{system.durationtype}}</label></div>
-    <div><label for="incantation">Temps d'incantation :  type {{system.incantationtype}}  value {{system.incantationvalue}}</label></div>
-    <div><label for="components">Composants : {{system.components}}</label></div>
-    <div><label for="classes"> ============================================ </label></div>
-    <br><br>  -->
-</form>

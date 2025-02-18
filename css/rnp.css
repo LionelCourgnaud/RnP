@@ -1,0 +1,13 @@
+.preview {
+    background: none; /* Supprime l'arrière-plan par défaut du bouton */
+    border: none; /* Supprime les bordures par défaut du bouton */
+    padding: 0; /* Supprime le padding par défaut du bouton */
+    cursor: pointer; /* Change le curseur pour indiquer que c'est cliquable */
+  }
+  
+.button-image {
+    width: 50px; /* Largeur de l'image */
+    height: 50px; /* Hauteur de l'image */
+    border: none; /* Supprime les bordures par défaut du bouton */
+    display: block; /* Assure que l'image est affichée en tant que bloc */
+}

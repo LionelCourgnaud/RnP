@@ -24,7 +24,8 @@
   ],
   "styles": [
     "css/system-grid.css",
-    "css/main.css"
+    "css/main.css",
+    "css/rnp.css"
   ],
   "languages": [
     {

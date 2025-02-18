@@ -65,6 +65,12 @@ export class CustomItemSheet extends ItemSheet {
         html.find('.duration').on('change', this._onDurationChange.bind(this));
         html.find('.classe-click').click(this._onClassEdit.bind(this));
         html.find('.component-click').click(this._onComponentsEdit.bind(this));
+        html.find('.preview').click(this._togglePreview.bind(this));
+        
+    }
+
+    _togglePreview(event) {
+        this.item.update({"system.preview": !this.item.system.preview})
     }
 
     // Callback .item-edit (click)
