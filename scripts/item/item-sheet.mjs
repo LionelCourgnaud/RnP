@@ -2,7 +2,7 @@ export class CustomItemSheet extends ItemSheet {
 
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            classes: ["rnp", "sheet", "item"],
+            classes: ["rnp", "item"],
             template: "systems/RnP/templates/item/object-sheet.hbs",
             width: 600,
             height: 750,
@@ -10,7 +10,8 @@ export class CustomItemSheet extends ItemSheet {
                 navSelector: ".sheet-tabs",
                 contentSelector: ".sheet-body",
                 initial: "description"
-            }]
+            }],
+            resizable : false
         });
     }
 
@@ -35,19 +36,19 @@ export class CustomItemSheet extends ItemSheet {
         switch (this.item.type) 
         {
             case 'object':
-                console.log("************ OBJET ***************");
+                // console.log("************ OBJET ***************");
                 break;
             case 'spell':
                 console.log("************ SORT ***************");
                 break;
             case 'capacity':
-                console.log("************ CAPACITE ***************");
+                // console.log("************ CAPACITE ***************");
                 break;
             case 'don':
-                console.log("************ DON ***************");
+                // console.log("************ DON ***************");
             break;
             case 'aptitude':
-                console.log("************ APTITUDE ***************");
+                // console.log("************ APTITUDE ***************");
             break;
         }
 
@@ -66,11 +67,12 @@ export class CustomItemSheet extends ItemSheet {
         html.find('.classe-click').click(this._onClassEdit.bind(this));
         html.find('.component-click').click(this._onComponentsEdit.bind(this));
         html.find('.preview').click(this._togglePreview.bind(this));
-        
     }
 
-    _togglePreview(event) {
-        this.item.update({"system.preview": !this.item.system.preview})
+
+    _togglePreview(value) {
+        const pview = value == false ? false : !this.item.system.preview;
+        this.item.update({"system.preview": pview});
     }
 
     // Callback .item-edit (click)

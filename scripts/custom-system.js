@@ -125,10 +125,15 @@ Hooks.on("chatMessage", (message, html, data) => {
 
 
 Hooks.on("updateItem", (item, changes, options, userId) => {
-    console.log('Mise à jour d\'un item : '+item.name, "\nUser ID : " ,userId, "\n== item ==", item, "\n== changes ==\n", changes )
+    // console.log('Mise à jour d\'un item : '+item.name, "\nUser ID : " ,userId, "\n== item ==", item, "\n== changes ==\n", changes )
 });
 
 // Hook sur la fermeture d'une ItemSheet
-Hooks.on("closeItemSheet", (item, html) => {
-    item.object.system.preview = !item.object.system.preview;
+Hooks.on("closeItemSheet", (item) => {
+    console.log(item.constructor.name);
+    item._togglePreview(false);
+});
+
+// uniquement à la création
+Hooks.once("renderItemSheet", (app, html) => {
 });

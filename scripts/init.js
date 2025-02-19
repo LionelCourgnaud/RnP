@@ -1,5 +1,5 @@
 import { CustomActor } from "./actor/actor-sheet.js";
-import { CustomItemSheet } from "./item/item-sheet.js";
+import { CustomItemSheet } from "./item/item-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers.js";
 
 Hooks.once('init', async function() 

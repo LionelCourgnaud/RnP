@@ -1,29 +1,27 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    <header class="item-spell-header m-0 p-0">
-        <div class ="container item-spell-header flex-grow-1 m-0 p-0">
-            <div class="d-flex justify-content-start justify-content-around align-items-center">
-                <div class="col-2 flex-grow-1 m-0 p-2">
-                    <img class="medium-img m-0 p-0" src="{{item.img}}" data-edit="img" title="{{item.name}}">
-                </div>
-                <div class="col-8 flex-grow-1 m-0 p-0">
-                    <h1 class="p-0 m-0">
-                        <input class="header-name" name="name" type="text" value="{{item.name}}" placeholder="Nom de l'objet"/>
-                    </h1>
-                </div>
-                <div class="col-2 flex-grow-1 m-0 p-0">
-                    <button class="preview">
-                        {{#if system.preview}}
-                        <img class="small-img m-0 p-0" src="systems/RnP/assets/icons/edit/scroll_light.png" alt="Editer">
-                        {{else}}
-                        <img class="small-img m-0 p-0" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
-                        {{/if}}
-                    </button>
-                </div>
+    <header class="sheet-header">
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+        <div class="header-fields">
+            <h1 class="charname">
+                <input name="name" type="text" value="{{item.name}}" placeholder="Nom de l'objet"/>
+            </h1>
+        </div>
+    </header>
+
+    <div>
+        <br><br>
+        <div class="container">
+            <div class="d-flex p-0 justify-content-end">
+                <button class="preview col-1">
+                    {{#if system.preview}}
+                    <img src="systems/RnP/assets/icons/edit/scroll.png" alt="Editer" class="button-image">
+                    {{else}}
+                    <img src="systems/RnP/assets/icons/edit/feather.png" alt="Editer" class="button-image">
+                    {{/if}}
+                </button>
             </div>
         </div>
-    </header>   
-
-    
+    </div>
     <br><br>
         <!-- APPARENCE -->
         <div class="form-group">
@@ -67,7 +65,7 @@
             <div id="classes">
                 {{#each config.classeTypes as |name val|}}
                     <div class="d-flex">
-                        {{this}} //
+                         {{this}} //
                         {{#if (inside ../system.classes val)}}
                             <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" checked>  
                         {{else}}
@@ -150,5 +148,3 @@
     <div><label for="classes"> ============================================ </label></div>
     <br><br>  -->
 </form>
-
-
