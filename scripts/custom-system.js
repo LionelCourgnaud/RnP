@@ -32,16 +32,16 @@ CUSTOM_SYSTEM.incantationTypes = {
 };
 
 CUSTOM_SYSTEM.spellLevels = {
-    0: "Tour de Magie",
-    1: "Niveau 1",
-    2: "Niveau 2",
-    3: "Niveau 3",
-    4: "Niveau 4",
-    5: "Niveau 5",
-    6: "Niveau 6",
-    7: "Niveau 7",
-    8: "Niveau 8",
-    9: "Niveau 9"
+    0: "0 (Tour de Magie)",
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9"
 };
 
 CUSTOM_SYSTEM.durationTypes = {

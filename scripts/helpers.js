@@ -9,11 +9,27 @@ export const registerHandlebarsHelpers = () => {
         }
         return result;
     }); 
+
     // Include (array)
     Handlebars.registerHelper('inside', function(v1, v2) {
-
         return v1.includes(v2.toString());
     }); 
+
+    // config[val]
+    Handlebars.registerHelper('array', function(v1, v2) {
+        let result = [];
+        if(Array.isArray(v2)) {
+            v2.forEach(key => {
+                if (v1[key] !== undefined) {
+                    result.push(v1[key]);
+                }
+            });
+            return result.join(', ');
+        } else {
+            result.push(v1[v2]);
+        }
+        return result;
+    });
 
     Handlebars.registerHelper("inc", function(value) {
         return parseInt(value) + 1;

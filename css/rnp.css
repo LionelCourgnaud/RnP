@@ -121,12 +121,12 @@ img {
   /* header */
 
 header .header-name {
+  font-family: "Tiller";
   color : var(--gray-light);
   height: 50px;
   border: none;
+  font-size: 35px;
 }
-
-/* TESTER */
 
 header .item-spell-header{
   background-color: var(--blue-dark);
@@ -134,73 +134,35 @@ header .item-spell-header{
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(0, 0, 0, 0.2);
 }
 
+  /* formulaire */
 
-  /* header */
+form .form-group {
+  font-size: 20px;
+  font-family: "Tiller";
+  color : var(--blue-dark);
+}
 
-/* .item header{
-  background-image: url(../assets/visuals/header_blue_600.png);
+form .form-group label {
+  font-weight: bold; 
+}
+
+form .form-group .form-group-content {
+  text-align: left;
+  white-space: pre-wrap;
+  max-width: 100%; 
+}
+
+form .form-group .form-textarea {
+  font-family: "Tiller";
+  font-size: 20px;
+  resize : none;
+}
+
+form .form-group .form-check-label {
+  font-weight: normal;
+}
+
+/* form .form-text-wrap {
+  white-space: pre-wrap;
+  max-width: 100%; 
 } */
-
-
-
-
-/* .preview {
-    background: none; 
-    padding: 0; 
-    cursor: pointer; 
-  }
-  
-.button-image {
-    width: 50px !important; 
-}  */
-
-/* .theme-dark .dnd5e2.sheet.item .window-content::before, .dnd5e2.sheet.item.dnd5e-theme-dark .window-content::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto  0;
-  height: 150px;
-  border-radius: 5px 5px 0 0;
-  opacity: 0.2;
-  background: url("ui/official/banner-item-dark.webp") no-repeat top center / cover;
-  mask-image: linear-gradient(to bottom, black, transparent);
-} */
-
-
-/* .window-content::before {
-  z-index: -1;
-  content: "";
-  position: absolute;
-  margin-top: 50px;
-  inset: 0 0 auto 0;
-  height: 100px;
-  border-radius: 5px 5px 0 0;
-  opacity: 0.5;
-  background-color: blue; 
-  mask-image: linear-gradient(to bottom, black, transparent);
-  resize: none;
-} */
-
-/* .window-content > form {
-  padding: 0px 0px 0px 0px;
-}
-
-.profile-img {
-  width: 50px !important;
-}
-
-header .item-spell-header{
-  background-color: blue;
-}
-
-.tester {
-  background-color: purple;
-}
-
-header .item-spell-header {
-  height: 200px !important;
-}
-
-header .h1 {
-  color: rebeccapurple;
-} */
-
