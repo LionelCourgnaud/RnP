@@ -13,9 +13,9 @@
                 <div class="col-2 flex-grow-1 m-0 p-0">
                     <button class="preview">
                         {{#if system.preview}}
-                        <img class="small-img m-0 p-0" src="systems/RnP/assets/icons/edit/scroll_light.png" alt="Editer">
+                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/scroll_light.png" alt="Editer">
                         {{else}}
-                        <img class="small-img m-0 p-0" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
+                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
                         {{/if}}
                     </button>
                 </div>
@@ -35,8 +35,7 @@
             {{/if}}
         </div>
     </div>
-    <br>
-
+    <hr>
     <!-- CLASSES -->
     <div class="container">
         <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
@@ -59,8 +58,7 @@
             {{/if}}
         </div>
     </div>
-    <br>
-
+    <hr>
     <!-- NIVEAU -->
     <div class="container">
         <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
@@ -78,20 +76,38 @@
             </div>
         </div>
     </div>  
-    <br>
-
-
-        <!-- DUREE -->
-        <div class="form-group duration">
-            <label for="duration">Durée</label>
-            <!-- 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)" -->
-            {{#if (eq system.durationtype 5 10 20 30)}}
-                <input type="number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
-            {{/if}}
-            <select name="system.durationtype">
-                {{selectOptions config.durationTypes selected=system.durationtype}}
-            </select>
+    <hr>
+    <!-- DUREE -->
+    <div class="container form-group">
+        <div class="form-group col-3 align-items-start justify-content-start m-0 p-0">
+            <div class="m-0 p-0">
+                <label for="duration">Durée</label>
+            </div>
         </div>
+        <div class="form-content col-9 m-0 p-0">
+            {{#if system.preview}}
+                {{#if (eq system.durationtype 5 10 20 30)}}
+                    <input type="form-input number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
+                    <select class="form-drop-small" name="system.durationtype">
+                {{else}}
+                    <select name="system.durationtype">
+                {{/if}}
+                    {{selectOptions config.durationTypes selected=system.durationtype}}
+                </select>
+            {{else}}
+                <div class="m-0 p-0">
+                    {{#if (eq system.durationtype 5 10 20 30)}}
+                        <p class="form-content m-0 p-0">{{system.durationvalue}} {{array config.durationTypes system.durationtype}}</p>
+                    {{else}}
+                        <p class="form-content m-0 p-0">{{array config.durationTypes system.durationtype}}</p>
+                    {{/if}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+
+    <br><br><br>
+
         <!-- COMPOSANTS -->
         <div class="form-group"> 
             <label for="components">Composant(s)</label>

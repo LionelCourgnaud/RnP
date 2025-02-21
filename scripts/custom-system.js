@@ -45,15 +45,15 @@ CUSTOM_SYSTEM.spellLevels = {
 };
 
 CUSTOM_SYSTEM.durationTypes = {
-    0: "instantané",
-    5: "round(s)",
-    10: "minute(s)",
-    20: "heure(s)",
-    30: "jour(s)",
-    40: "permanent",
+    0: "Instantané",
+    5: "Round(s)",
+    10: "Minute(s)",
+    20: "Heure(s)",
+    30: "Jour(s)",
+    40: "Permanent",
     90: "Jusqu'à dissipation",
-    95: "jusqu’à dissipation ou déclenchement",
-    100: "jusqu'à la fin du prochain tour du lanceur"
+    95: "Jusqu’à dissipation ou déclenchement",
+    100: "Jusqu'à la fin du prochain tour du lanceur"
 };
 
 

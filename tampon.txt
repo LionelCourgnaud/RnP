@@ -1,0 +1,15 @@
+        <!-- DUREE -->
+        <div class="form-group duration">
+            <label for="duration">Durée</label>
+            <!-- 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)" -->
+            {{#if (eq system.durationtype 5 10 20 30)}}
+                <input type="number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
+            {{/if}}
+            <select name="system.durationtype">
+                {{selectOptions config.durationTypes selected=system.durationtype}}
+            </select>
+        </div> 
+
+                          {{#if (eq system.durationtype 5 10 20 30)}}
+                        <input type="number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
+                    {{/if}}

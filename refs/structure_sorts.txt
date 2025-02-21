@@ -1,0 +1,75 @@
+Voici la structure du fichier `sort_api_1x.json` avec le type de chaque attribut, sans le contenu :
+
+- **slug**: string
+- **title**: string
+- **type**: string
+- **level**: number
+- **school**: string
+- **category**: string
+- **castingTime**: object
+  - **value**: number
+  - **units**: string
+  - **display**: string
+- **range**: object
+  - **value**: number
+  - **units**: string
+  - **display**: string
+- **area**: object
+  - **type**: null
+  - **value**: null
+  - **units**: null
+  - **display**: null
+- **components**: object
+  - **vocal**: boolean
+  - **somatic**: boolean
+  - **material**: boolean
+  - **ritual**: boolean
+  - **concentration**: boolean
+- **materials**: object
+  - **value**: string
+  - **consumed**: boolean
+  - **cost**: number
+- **duration**: object
+  - **value**: number
+  - **units**: string
+  - **display**: null
+- **target**: string
+- **save**: object
+  - **ability**: string
+  - **dc**: null
+  - **scaling**: string
+  - **success**: string
+- **damages**: null
+- **altDamages**: null
+- **scaling**: object
+  - **mode**: null
+  - **formula**: null
+  - **display**: null
+- **conditions**: null
+- **sortDamageTypes**: null
+- **sortCastingTime**: string
+- **sortDuration**: string
+- **sortRange**: string
+- **sortArea**: null
+- **classes**: array of strings
+- **subclasses**: null
+- **sources**: array of strings
+- **sourcePages**: array of numbers
+- **appearance**: string
+- **toc**: array
+- **body**: object
+  - **type**: string
+  - **children**: array of objects
+    - **type**: string
+    - **tag**: string
+    - **props**: object
+    - **children**: array of objects
+      - **type**: string
+      - **value**: string
+- **dir**: string
+- **path**: string
+- **extension**: string
+- **createdAt**: string (date-time)
+- **updatedAt**: string (date-time)
+
+Si vous avez besoin de plus de détails ou d'une autre extraction, n'hésitez pas à me le faire savoir !

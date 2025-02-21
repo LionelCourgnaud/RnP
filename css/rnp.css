@@ -108,6 +108,11 @@ img {
   border-radius: 5px;
 }
 
+.xsmall-img {
+  width: 40px;
+  max-width: 40px;
+}
+
 .small-img {
   width: 50px;
   max-width: 50px;
@@ -135,6 +140,19 @@ header .item-spell-header{
 }
 
   /* formulaire */
+
+form input {
+  font-size: 20px;
+  height: 30px;
+  text-align: center;
+  font-family: "Tiller";
+  color : var(--blue-dark);
+  width: 50px;
+}
+
+.form-drop-small {
+  width: 200px;
+}
 
 form .form-group {
   font-size: 20px;
