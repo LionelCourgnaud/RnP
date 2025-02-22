@@ -4,15 +4,15 @@ window.CUSTOM_SYSTEM = {};
 //  Liste pour les sorts
 // --------------------------
 CUSTOM_SYSTEM.classeTypes = {
-    0: "Barde",
-    10: "Clerc",
-    20: "Druide",
-    30: "Ensorceleur",
-    40: "Magicien",
-    50: "Ombrelame",
-    60: "Paladin",
-    70: "Rôdeur",
-    80: "Sorcier"
+    "bard": "Barde",
+    "cleric" : "Clerc",
+    "druid" : "Druide",
+    "sorcerer" : "Ensorceleur",
+    "wizard" : "Magicien",
+    "shadowblade" : "Ombrelame",
+    "paladin" : "Paladin",
+    "ranger" : "Rôdeur",
+    "warlock" : "Sorcier"
 };
 
 CUSTOM_SYSTEM.componentsTypes = {
@@ -45,17 +45,28 @@ CUSTOM_SYSTEM.spellLevels = {
 };
 
 CUSTOM_SYSTEM.durationTypes = {
-    0: "Instantané",
-    5: "Round(s)",
-    10: "Minute(s)",
-    20: "Heure(s)",
-    30: "Jour(s)",
-    40: "Permanent",
-    45: "Spéciale",
-    90: "Jusqu'à dissipation",
-    95: "Jusqu’à dissipation ou déclenchement",
-    100: "Jusqu'à la fin du prochain tour du lanceur"
+    "inst" : "Instantané",
+    "round": "Round(s)",
+    "minute": "Minute(s)",
+    "hour": "Heure(s)",
+    "day": "Jour(s)",
+    "perm": "Permanent",
+    "spec": "Spéciale"
 };
+
+// CUSTOM_SYSTEM.durationTypes = {
+//     0: "Instantané",
+//     5: "Round(s)",
+//     10: "Minute(s)",
+//     20: "Heure(s)",
+//     30: "Jour(s)",
+//     40: "Permanent",
+//     45: "Spéciale",
+//     90: "Jusqu'à dissipation",
+//     95: "Jusqu’à dissipation ou déclenchement",
+//     100: "Jusqu'à la fin du prochain tour du lanceur"
+// };
+
 
 
 // Helpers pour le système

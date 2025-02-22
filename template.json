@@ -70,20 +70,33 @@
     "object": {
       "name" : "Objet"
     },
-    "spell": {
+    "capacity": {
+        "name" : "Capacité"
+      },
+      "don": {
+        "name" : "Don"
+      },
+      "aptitude": {
+        "name" : "Aptitude"
+      },
+    "spell": {  
+      "classes" : [],
+      "duration": {
+        "value": 0,
+        "units": "",
+        "display": null
+      },
+      "appearance": "",
+
+
       "name" : "Nom du Sort",
       "spellLevel": 0,
       "incantationtype" : "",
       "incantationvalue" : 0,
       "durationtype" : "",
       "durationvalue" : 0,
-      "duration": {
-        "value": 0,
-        "units": "",
-        "display": ""
-      },
       "concentration" : 0,
-      "classes" : [],
+      "_classes" : [],
       "effect" : "",
       "save" : "",
       "rangetype" : "",
@@ -99,15 +112,6 @@
       "componentslist" : "",
       "componentscost" : 0,
       "preview" : false
-    },
-    "capacity": {
-      "name" : "Capacité"
-    },
-    "don": {
-      "name" : "Don"
-    },
-    "aptitude": {
-      "name" : "Aptitude"
     }
   }
 }

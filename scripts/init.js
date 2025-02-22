@@ -1,7 +1,6 @@
 import { CustomActor } from "./actor/actor-sheet.js";
 import { CustomItemSheet } from "./item/item-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers.js";
-import { ALL_SORTS } from "../refs/sorts_api.js";
 import { Translation } from "../refs/sorts_api.js";
 
 Hooks.once('init', async function() 
@@ -107,29 +106,39 @@ async function createSortsCompendium() {
     //     // translated.convert(element.duration.units);
     //     translated.giveme("duration.units");
     // });
-    console.log(translated.giveme("duration.units"));
 
-    return;
+    // console.log(translated.giveme("duration.display", true));
+    // console.log(translated.all_sorts()[0]);
+    // return;
 
-    for(let i=0;i<ALL_SORTS.length;i++) //ALL_SORTS.length
+    for(let i=0;i<translated.all_sorts().length;i++) //ALL_SORTS.length
     {
         // if(ALL_SORTS[i].title!="Aspersion acide") {
         //     continue;
         // };
 
         const spellItem = {
-            name: ALL_SORTS[i].title,
+            name: translated.all_sorts()[i].title,
             type: "spell",
             img: 'systems/RnP/assets/icons/edit/scroll_light.svg',
             system : {
-                "name" : ALL_SORTS[i].title,
-                "spellLevel": ALL_SORTS[i].level,
+                // NEW STRUCTURE
+                "duration": {
+                    "value": translated.all_sorts()[i].duration.value,
+                    "units": translated.wrap(translated.all_sorts()[i].duration.units),
+                    "display": translated.all_sorts()[i].duration.display,
+                },
+                "appearance": translated.all_sorts()[i].appearance,
+                "classes" : translated.all_sorts()[i].classes,
+                // OLD STRUCTURE
+                "name" : translated.all_sorts()[i].title,
+                "spellLevel": translated.all_sorts()[i].level,
                 "incantationtype" : "",
                 "incantationvalue" : 0,
-                "durationtype" : translated.convert(ALL_SORTS[i].duration.units),
+                // "durationtype" : translated.convert(ALL_SORTS[i].duration.units),
                 "durationvalue" : 0,
                 "concentration" : 0,
-                "classes" : [],
+                // "classes" : [],
                 "effect" : "",
                 "save" : "",
                 "rangetype" : "",
@@ -154,7 +163,7 @@ async function createSortsCompendium() {
            
             if (!existingItem) {
                 await Item.create(spellItem, {pack: pack.collection});
-                console.log(`Sort ${spellItem.name} ajoutée au compendium`);
+                console.log(`Sort ${spellItem.name} ajouté au compendium`);
             } else {
                 console.log(`Sort ${spellItem.name} existe déjà dans le compendium`);
             }

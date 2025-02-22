@@ -29,9 +29,9 @@
         <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
             <label class="col-3 m-0 p-0">Apparence</label>
             {{#if system.preview}}
-                <textarea class="form-textarea" id="system.appearance" name="system.appearance" rows="2">{{system.appearance}}</textarea>
+                <textarea class="form-textarea" id="system.visual" name="system.visual" rows="2">{{system.visual}}</textarea>
             {{else}}
-                <p class="form-content col-9 m-0 p-0">{{system.appearance}}</p>
+                <p class="form-content col-9 m-0 p-0">{{system.visual}}</p>
             {{/if}}
         </div>
     </div>
@@ -77,7 +77,6 @@
         </div>
     </div>  
     <hr>
-
     <!-- DUREE -->
     <div class="container form-group">
         <div class="form-group col-3 align-items-start justify-content-start m-0 p-0">
@@ -86,28 +85,21 @@
             </div>
         </div>
         <div class="form-content col-9 m-0 p-0">
-            <!-- SELECT -->
-            {{#if system.preview}}    
-                <!-- SELECT avec VALEUR -->  
-                {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
-                    <input type="form-input number" name="system.duration.value" value="{{system.duration.value}}" data-dtype="Number"/>
-                    <select class="form-drop-small" name="system.duration.units">
+            {{#if system.preview}}
+                {{#if (eq system.durationtype 5 10 20 30)}}
+                    <input type="form-input number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
+                    <select class="form-drop-small" name="system.durationtype">
                 {{else}}
-                    <!-- SELECT sans VALEUR {{system.duration.display}}-->
-                    <select name="system.duration.units">
+                    <select name="system.durationtype">
                 {{/if}}
-                    {{selectOptions config.durationTypes selected=system.duration.units}}
+                    {{selectOptions config.durationTypes selected=system.durationtype}}
                 </select>
             {{else}}
                 <div class="m-0 p-0">
-                    {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
-                        <p class="form-content m-0 p-0">{{system.duration.value}} {{array config.durationTypes system.duration.units}}</p>
+                    {{#if (eq system.durationtype 5 10 20 30)}}
+                        <p class="form-content m-0 p-0">{{system.durationvalue}} {{array config.durationTypes system.durationtype}}</p>
                     {{else}}
-                        {{#if system.duration.display}}
-                            <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}} ({{system.duration.display}})</p>
-                        {{else}}
-                            <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}}</p>
-                        {{/if}}
+                        <p class="form-content m-0 p-0">{{array config.durationTypes system.durationtype}}</p>
                     {{/if}}
                 </div>
             {{/if}}
