@@ -4,7 +4,7 @@ export class CustomItemSheet extends ItemSheet {
         return foundry.utils.mergeObject(super.defaultOptions, {
             classes: ["rnp", "item"],
             template: "systems/RnP/templates/item/object-sheet.hbs",
-            width: 600,
+            width: 580,
             height: 750,
             tabs: [{
                 navSelector: ".sheet-tabs",
@@ -114,13 +114,13 @@ export class CustomItemSheet extends ItemSheet {
 
     // Callback .duration (change)
     async _onDurationChange(event) {
-        // 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)"
-        if(this.item.system.durationtype != 5 
-            && this.item.system.durationtype != 10 
-            && this.item.system.durationtype != 20
-            && this.item.system.durationtype != 30) {
+        console.log(this.item.system.duration.units);
+        if(this.item.system.duration.units != "round" 
+            && this.item.system.duration.units != "minute"
+            && this.item.system.duration.units != "hour"
+            && this.item.system.duration.units != "day") {
             await this.item.update({
-                "system.durationvalue" : 0
+                "system.duration.value" : 0
             })
         }
         event.preventDefault(); 

@@ -1,34 +1,9 @@
- "Item": {
-    "types": ["item", "spell", "paths", "races"],
-    "templates": {
-      "base": {
-        "description": "",
-        "quantity": 1,
-        "weight": 0,
-        "price": 0,
-        "rarity": "common"
-      }
-    },
-    "item": {
-      "templates": ["base"]
-    },
-    "paths": {
-      "name": "",
-      "description": "",
-      "familyWay": {
-        "id": "",
-        "name":"",
-        "life":""
-      }
-    },
-    "races": {
-      "description": "",
-      "features": {
-        "more": [],
-        "less": [],
-        "moreforless": false
-      },
-      "ways": {
-        "list": []
-      }
-    }
+        <div class="col-2 flex-grow-1 m-0 p-0">
+                    <button class="preview">
+                        {{#if system.preview}}
+                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/scroll_light.png" alt="Editer">
+                        {{else}}
+                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
+                        {{/if}}
+                    </button>
+                </div>

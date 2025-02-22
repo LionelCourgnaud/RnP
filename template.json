@@ -80,11 +80,11 @@
         "name" : "Aptitude"
       },
     "spell": {  
+      "title" : "",
       "classes" : [],
       "duration": {
         "value": 0,
-        "units": "",
-        "display": null
+        "units": ""
       },
       "appearance": "",
 

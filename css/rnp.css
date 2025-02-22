@@ -61,6 +61,10 @@
 
 /* GLOBAL STYLES */
 
+.multiline {
+  white-space: pre-wrap; /* Permet les retours à la ligne */
+}
+
 .item .window-content {
   margin: 0 !important;
   padding: 0 !important;
@@ -108,6 +112,12 @@ img {
   border-radius: 5px;
 }
 
+.xxsmall-img {
+  width: 25px;
+  max-width: 25px;
+}
+
+
 .xsmall-img {
   width: 40px;
   max-width: 40px;
@@ -119,8 +129,8 @@ img {
 }
 
 .medium-img {
-  width: 75px;
-  max-width: 75px;
+  width: 70px;
+  max-width: 70px;
 }
 
   /* header */
@@ -128,16 +138,37 @@ img {
 header .header-name {
   font-family: "Tiller";
   color : var(--gray-light);
-  height: 50px;
+  height: 100%;
+  line-height: 25px;
   border: none;
-  font-size: 35px;
+  font-size: 25px;
+  white-space: pre-wrap;
+  width: 500px;
 }
 
 header .item-spell-header{
+  height: 70px;
   background-color: var(--blue-dark);
   border-radius: 0px 0px 10px 10px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(0, 0, 0, 0.2);
 }
+
+header .position-absolute-preview {
+    z-index: -1;
+    background-color: var(--blue-light);
+    position: absolute;
+    border-radius: 10px 0px 0px 10px;
+    top: 150px; /* Ajustez selon vos besoins */
+    left: -37px; /* Ajustez selon vos besoins */
+    width: 40px;
+    height: 60px;
+    box-shadow: inset 0px 0px 10px var(--blue-dark);
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 
   /* formulaire */
 
@@ -150,12 +181,21 @@ form input {
   width: 50px;
 }
 
+form input .form-input .text {
+  font-size: 20px;
+  height: 30px;
+  text-align: left;
+  font-family: "Tiller";
+  color : var(--blue-dark);
+  width: 100px;
+}
+
 .form-drop-small {
   width: 200px;
 }
 
 form .form-group {
-  font-size: 20px;
+  font-size: 17px;
   font-family: "Tiller";
   color : var(--blue-dark);
 }
@@ -172,15 +212,10 @@ form .form-group .form-group-content {
 
 form .form-group .form-textarea {
   font-family: "Tiller";
-  font-size: 20px;
+  font-size: 17px;
   resize : none;
 }
 
 form .form-group .form-check-label {
   font-weight: normal;
 }
-
-/* form .form-text-wrap {
-  white-space: pre-wrap;
-  max-width: 100%; 
-} */

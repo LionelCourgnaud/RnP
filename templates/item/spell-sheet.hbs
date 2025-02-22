@@ -1,21 +1,29 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     <header class="item-spell-header m-0 p-0">
         <div class ="container item-spell-header flex-grow-1 m-0 p-0">
-            <div class="d-flex justify-content-start justify-content-around align-items-center">
-                <div class="col-2 flex-grow-1 m-0 p-2">
-                    <img class="medium-img m-0 p-0" src="{{item.img}}" data-edit="img" title="{{item.name}}">
+            <div class="d-flex justify-content-start align-items-center flex-grow-1">
+                <div class="col-2  m-0 p-2">
+                {{#if system.preview}}
+                    <img class="small-img m-0 p-0" src="{{item.img}}" data-edit="img" title="{{item.name}}">
+                {{else}}
+                    <img class="small-img m-0 p-0" src="{{item.img}}" title="{{item.name}}">
+                {{/if}}
                 </div>
-                <div class="col-8 flex-grow-1 m-0 p-0">
+                <div class="col-10 m-0 p-0">
                     <h1 class="p-0 m-0">
-                        <input class="header-name" name="name" type="text" value="{{item.name}}" placeholder="Nom de l'objet"/>
+                        {{#if system.preview}}
+                            <input class="header-name p-0 m-0" name="name" type="text" value="{{item.name}}" placeholder="Nom de l'objet"/>
+                        {{else}}
+                            <p class="header-name p-0 m-0">{{item.name}}</p>
+                        {{/if}}
                     </h1>
                 </div>
-                <div class="col-2 flex-grow-1 m-0 p-0">
-                    <button class="preview">
+                <div class="d-flex m-0 p-0 position-absolute-preview justify-content-center align-items-center">
+                    <button class="preview m-0 p-0">
                         {{#if system.preview}}
-                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/scroll_light.png" alt="Editer">
+                        <img class="xxsmall-img" src="systems/RnP/assets/icons/edit/scroll_light.svg" alt="Editer">
                         {{else}}
-                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
+                        <img class="xxsmall-img" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
                         {{/if}}
                     </button>
                 </div>
@@ -25,7 +33,7 @@
 
     <br>
     <!-- APPARENCE -->
-    <div class="container">
+    <div class="container py-1">
         <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
             <label class="col-3 m-0 p-0">Apparence</label>
             {{#if system.preview}}
@@ -35,9 +43,8 @@
             {{/if}}
         </div>
     </div>
-    <hr>
     <!-- CLASSES -->
-    <div class="container">
+    <div class="container py-1">
         <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
             <div class="col-3 m-0 p-0">
                 <label for="classes">Classe(s)</label>
@@ -58,9 +65,8 @@
             {{/if}}
         </div>
     </div>
-    <hr>
     <!-- NIVEAU -->
-    <div class="container">
+    <div class="container py-1">
         <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
             <div class="col-3 m-0 p-0">
                 <label class="col-3 m-0 p-0" for="spelllevel">Niveau</label>
@@ -76,10 +82,8 @@
             </div>
         </div>
     </div>  
-    <hr>
-
     <!-- DUREE -->
-    <div class="container form-group">
+    <div class="form-group container py-1">
         <div class="form-group col-3 align-items-start justify-content-start m-0 p-0">
             <div class="m-0 p-0">
                 <label for="duration">Durée</label>
@@ -91,10 +95,10 @@
                 <!-- SELECT avec VALEUR -->  
                 {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
                     <input type="form-input number" name="system.duration.value" value="{{system.duration.value}}" data-dtype="Number"/>
-                    <select class="form-drop-small" name="system.duration.units">
+                    <select class="form-drop-small duration" name="system.duration.units">
                 {{else}}
                     <!-- SELECT sans VALEUR {{system.duration.display}}-->
-                    <select name="system.duration.units">
+                    <select class="duration" name="system.duration.units">
                 {{/if}}
                     {{selectOptions config.durationTypes selected=system.duration.units}}
                 </select>
@@ -103,11 +107,7 @@
                     {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
                         <p class="form-content m-0 p-0">{{system.duration.value}} {{array config.durationTypes system.duration.units}}</p>
                     {{else}}
-                        {{#if system.duration.display}}
-                            <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}} ({{system.duration.display}})</p>
-                        {{else}}
-                            <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}}</p>
-                        {{/if}}
+                        <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}}</p>
                     {{/if}}
                 </div>
             {{/if}}

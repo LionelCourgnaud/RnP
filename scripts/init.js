@@ -123,10 +123,10 @@ async function createSortsCompendium() {
             img: 'systems/RnP/assets/icons/edit/scroll_light.svg',
             system : {
                 // NEW STRUCTURE
+                "title" : translated.all_sorts()[i].title,
                 "duration": {
                     "value": translated.all_sorts()[i].duration.value,
-                    "units": translated.wrap(translated.all_sorts()[i].duration.units),
-                    "display": translated.all_sorts()[i].duration.display,
+                    "units": translated.wrapForeign(translated.all_sorts()[i].duration.display,translated.all_sorts()[i].duration.units),
                 },
                 "appearance": translated.all_sorts()[i].appearance,
                 "classes" : translated.all_sorts()[i].classes,

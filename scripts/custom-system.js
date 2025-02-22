@@ -51,7 +51,11 @@ CUSTOM_SYSTEM.durationTypes = {
     "hour": "Heure(s)",
     "day": "Jour(s)",
     "perm": "Permanent",
-    "spec": "Spéciale"
+    "spec": "Spéciale",
+    "dissip" : "Jusqu'à dissipation",
+    "dissipcast" : "Jusqu'à déclenchement ou dissipation",
+    "nextturn" : "Jusqu'à la fin du prochain tour du lanceur",
+    "use" : "jusqu'à utilisation"
 };
 
 // CUSTOM_SYSTEM.durationTypes = {
