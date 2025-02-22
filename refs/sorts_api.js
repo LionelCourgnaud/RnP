@@ -1,4 +1,34 @@
-[
+const CONVERT = {
+    "hour" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Heure(s)"),
+    "min" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Minute(s)"),
+}
+
+export class Translation {  
+    convert(key) {
+        return CONVERT[key];
+    }
+
+    giveme(keys) {
+        let result = [];
+        console.log(keys);
+        let all_keys = keys.split(".");
+        console.log(all_keys);
+        ALL_SORTS.forEach(element => {
+            let value = element;
+            all_keys.forEach(key => {
+                if (value !== undefined) {
+                    value = value[key];
+                }
+            });
+            if (value !== undefined && !result.includes(value)) {
+                result.push(value);
+            }
+        });
+        return result;
+    }
+}
+
+export const ALL_SORTS = [
     {
         "slug": "agrandir-retrecir",
         "title": "Agrandir/Rétrécir",
@@ -74467,4 +74497,4 @@
         "createdAt": "2025-02-13T15:30:17.102Z",
         "updatedAt": "2025-02-13T15:30:17.102Z"
     }
-]
+];

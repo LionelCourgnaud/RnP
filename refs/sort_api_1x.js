@@ -1,4 +1,191 @@
-{
+const CONVERT = {
+    // 0: "Instantané",
+    // 5: "Round(s)",
+    // 10: "Minute(s)",
+    // 20: "Heure(s)",
+    // 30: "Jour(s)",
+    // 40: "Permanent",
+    // 90: "Jusqu'à dissipation",
+    // 95: "Jusqu’à dissipation ou déclenchement",
+    // 100: "Jusqu'à la fin du prochain tour du lanceur"
+    "min" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Minute(s)"),
+    "hour" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Heure(s)"),
+    "inst" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Instantané"),
+    "minute" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Minute(s)"),
+    "round" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Round(s)"),
+    "perm" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Permanent"),
+    "day" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Jour(s)"),
+    "min" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Minute(s)")
+}
+
+export class Translation {  
+    
+    convert(value) {
+        return CONVERT[value];
+    }
+
+    giveme(keys) {
+        let result = [];
+        console.log(keys);
+        let all_keys = keys.split(".");
+        console.log(all_keys);
+        ALL_SORTS.forEach(element => {
+            let value = element;
+            all_keys.forEach(key => {
+                if (value !== undefined) {
+                    value = value[key];
+                }
+            });
+            if (value !== undefined && !result.includes(value)) {
+                result.push(value);
+            }
+        });
+        return result;
+    }
+}
+
+
+export const ALL_SORTS = [
+    {
+        "slug": "aide",
+        "title": "Aide",
+        "type": "spell",
+        "level": 2,
+        "school": "abj",
+        "category": "heal",
+        "castingTime": {
+            "value": 1,
+            "units": "action",
+            "condition": null,
+            "display": "1 action"
+        },
+        "range": {
+            "value": 9,
+            "units": "m",
+            "display": "9 m"
+        },
+        "area": {
+            "type": null,
+            "value": null,
+            "units": null,
+            "display": null
+        },
+        "components": {
+            "vocal": true,
+            "somatic": true,
+            "material": true,
+            "ritual": false,
+            "concentration": false
+        },
+        "materials": {
+            "value": "Une minuscule bandelette de tissu blanc",
+            "consumed": false,
+            "cost": 0
+        },
+        "duration": {
+            "value": 8,
+            "units": "hour",
+            "display": null
+        },
+        "target": "jusqu'à 3 créatures à portée",
+        "save": {
+            "ability": null,
+            "dc": null,
+            "scaling": "spell",
+            "success": null
+        },
+        "damages": [
+            {
+                "value": "5",
+                "type": "temphp"
+            }
+        ],
+        "altDamages": null,
+        "scaling": {
+            "mode": "level",
+            "formula": "5"
+        },
+        "conditions": null,
+        "sortDamageTypes": [
+            "temphp"
+        ],
+        "sortCastingTime": "1",
+        "sortDuration": "3.08",
+        "sortRange": "2.06",
+        "sortArea": null,
+        "classes": [
+            "cleric",
+            "paladin"
+        ],
+        "subclasses": null,
+        "sources": [
+            "BBERNPJDR01"
+        ],
+        "sourcePages": [
+            252
+        ],
+        "appearance": "Votre pouvoir divin rend force et courage à vos compagnons.",
+        "toc": [],
+        "body": {
+            "type": "root",
+            "children": [
+                {
+                    "type": "element",
+                    "tag": "p",
+                    "props": {},
+                    "children": [
+                        {
+                            "type": "element",
+                            "tag": "strong",
+                            "props": {},
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "value": "Effet :"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "value": " le maximum de points de vie et les points de vie actuels de chaque cible augmentent de 5."
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "value": "\n"
+                },
+                {
+                    "type": "element",
+                    "tag": "p",
+                    "props": {},
+                    "children": [
+                        {
+                            "type": "element",
+                            "tag": "strong",
+                            "props": {},
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "value": "À plus haut niveau."
+                                }
+                            ]
+                        },
+                        {
+                            "type": "text",
+                            "value": " Emplacement de niveau 3 ou plus : +5 points de vie aux cibles par niveau d’emplacement supplémentaire."
+                        }
+                    ]
+                }
+            ]
+        },
+        "dir": "/sorts",
+        "path": "/sorts/aide",
+        "extension": ".md",
+        "createdAt": "2025-02-13T15:30:17.094Z",
+        "updatedAt": "2025-02-13T15:30:17.094Z"
+    },
+    {
         "slug": "agrandir-retrecir",
         "title": "Agrandir/Rétrécir",
         "type": "spell",
@@ -262,4 +449,6 @@
         "extension": ".md",
         "createdAt": "2025-02-13T15:30:17.094Z",
         "updatedAt": "2025-02-13T15:30:17.094Z"
-}
+
+
+    }];

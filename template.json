@@ -77,6 +77,11 @@
       "incantationvalue" : 0,
       "durationtype" : "",
       "durationvalue" : 0,
+      "duration": {
+        "value": 0,
+        "units": "",
+        "display": ""
+      },
       "concentration" : 0,
       "classes" : [],
       "effect" : "",

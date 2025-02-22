@@ -1,15 +1,34 @@
-        <!-- DUREE -->
-        <div class="form-group duration">
-            <label for="duration">Durée</label>
-            <!-- 5: "round(s)", 10: "minute(s)", 20: "heure(s)", 30: "jour(s)" -->
-            {{#if (eq system.durationtype 5 10 20 30)}}
-                <input type="number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
-            {{/if}}
-            <select name="system.durationtype">
-                {{selectOptions config.durationTypes selected=system.durationtype}}
-            </select>
-        </div> 
-
-                          {{#if (eq system.durationtype 5 10 20 30)}}
-                        <input type="number" name="system.durationvalue" value="{{system.durationvalue}}" data-dtype="Number"/>
-                    {{/if}}
+ "Item": {
+    "types": ["item", "spell", "paths", "races"],
+    "templates": {
+      "base": {
+        "description": "",
+        "quantity": 1,
+        "weight": 0,
+        "price": 0,
+        "rarity": "common"
+      }
+    },
+    "item": {
+      "templates": ["base"]
+    },
+    "paths": {
+      "name": "",
+      "description": "",
+      "familyWay": {
+        "id": "",
+        "name":"",
+        "life":""
+      }
+    },
+    "races": {
+      "description": "",
+      "features": {
+        "more": [],
+        "less": [],
+        "moreforless": false
+      },
+      "ways": {
+        "list": []
+      }
+    }

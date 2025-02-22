@@ -51,15 +51,20 @@ CUSTOM_SYSTEM.durationTypes = {
     20: "Heure(s)",
     30: "Jour(s)",
     40: "Permanent",
+    45: "Spéciale",
     90: "Jusqu'à dissipation",
     95: "Jusqu’à dissipation ou déclenchement",
     100: "Jusqu'à la fin du prochain tour du lanceur"
 };
 
 
-
 // Helpers pour le système
 CUSTOM_SYSTEM.utils = {
+
+    getKey: function(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    },
+
     // Fonction pour lancer un dé
     rollDice: async function(formula, actor = null, options = {}) {
         let roll = new Roll(formula);

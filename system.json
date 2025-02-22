@@ -37,6 +37,15 @@
       "distance": 1.5,
       "units": "m"
   },
+  "packs": [
+    {
+      "name": "spells",
+      "label": "Sorts",
+      "path": "packs/spell.db",
+      "type": "Item",
+      "system": "RnP"
+    }
+  ],
   "socket": false,
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
