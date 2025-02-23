@@ -143,10 +143,11 @@ header .header-name {
   border: none;
   font-size: 25px;
   white-space: pre-wrap;
-  width: 500px;
+  width: 100%;
 }
 
 header .item-spell-header{
+  width: 100%;
   height: 70px;
   background-color: var(--blue-dark);
   border-radius: 0px 0px 10px 10px;

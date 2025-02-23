@@ -16,19 +16,22 @@ CUSTOM_SYSTEM.classeTypes = {
 };
 
 CUSTOM_SYSTEM.componentsTypes = {
-    0: "Vocal",
-    10: "Somatique",
-    20: "Matériel"
+    "vocal" : "Vocal",
+    "somatique": "Somatique",
+    "material": "Matériel",
 }
 
-CUSTOM_SYSTEM.incantationTypes = {
-    0: "1 action",
-    10: "action bonus",
-    15: "1 Réaction",
-    20: "instantanné",
-    25: "heure(s)",
-    30: "minute(s)",
-    32: "round(s)",
+CUSTOM_SYSTEM.componentsSpecial = {
+    "ritual": "Rituel",
+    "concentration": "Concentration"
+}
+
+CUSTOM_SYSTEM.castingTimes = {
+    "action": "Action",
+    "minute": "Minute(s)",
+    "hour": "Heures",
+    "bonus": "Bonus",
+    "reaction": "Réaction",
 };
 
 CUSTOM_SYSTEM.spellLevels = {
@@ -57,20 +60,6 @@ CUSTOM_SYSTEM.durationTypes = {
     "nextturn" : "Jusqu'à la fin du prochain tour du lanceur",
     "use" : "jusqu'à utilisation"
 };
-
-// CUSTOM_SYSTEM.durationTypes = {
-//     0: "Instantané",
-//     5: "Round(s)",
-//     10: "Minute(s)",
-//     20: "Heure(s)",
-//     30: "Jour(s)",
-//     40: "Permanent",
-//     45: "Spéciale",
-//     90: "Jusqu'à dissipation",
-//     95: "Jusqu’à dissipation ou déclenchement",
-//     100: "Jusqu'à la fin du prochain tour du lanceur"
-// };
-
 
 
 // Helpers pour le système

@@ -114,29 +114,27 @@ export class CustomItemSheet extends ItemSheet {
 
     // Callback .duration (change)
     async _onDurationChange(event) {
-        console.log(this.item.system.duration.units);
-        if(this.item.system.duration.units != "round" 
-            && this.item.system.duration.units != "minute"
-            && this.item.system.duration.units != "hour"
-            && this.item.system.duration.units != "day") {
-            await this.item.update({
-                "system.duration.value" : 0
-            })
-        }
-        event.preventDefault(); 
+        // if(this.item.system.duration.units != "round" 
+        //     && this.item.system.duration.units != "minute"
+        //     && this.item.system.duration.units != "hour"
+        //     && this.item.system.duration.units != "day") {
+        //     await this.item.update({
+        //         "system.duration.value" : 0
+        //     })
+        // }
+        // event.preventDefault(); 
     }
 
     // Callback .incantation (change)
     async _onIncantChange(event) {
-        // 25: "heure(s)"",30: "minute(s)",32: "round(s)",
-        if(this.item.system.incantationtype != 30 
-            && this.item.system.incantationtype != 25 
-            && this.item.system.incantationtype != 32) {
-            await this.item.update({
-                "system.incantationvalue" : 0
-            })
-        }
-        event.preventDefault(); 
+        // 25: "heure(s)"",30: "minute(s)"
+        // if(this.item.system.castingTimes != "minute"
+        //     && this.item.system.castingTimes != "hour") {
+        //     await this.item.update({
+        //         "system.castingTime.value" : 0
+        //     })
+        // }
+        // event.preventDefault(); 
     }
 
     // Callback ?? (??)

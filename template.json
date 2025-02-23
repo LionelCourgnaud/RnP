@@ -79,6 +79,8 @@
       "aptitude": {
         "name" : "Aptitude"
       },
+
+
     "spell": {  
       "title" : "",
       "classes" : [],
@@ -87,6 +89,23 @@
         "units": ""
       },
       "appearance": "",
+      "components": {
+        "vocal": null,
+        "somatic": null,
+        "material": null,
+        "ritual": null,
+        "concentration": null
+      },
+      "castingTime" : {
+        "value" : 0,
+        "units" : "",
+        "display" : "" 
+      },
+      "materials": {
+        "value": null,
+        "consumed": false,
+        "cost": 0
+      },
 
 
       "name" : "Nom du Sort",
@@ -108,7 +127,7 @@
       "evolution": [],
       "visual" : "",
       "limits" : "",
-      "components" : [],
+      "_components" : [],
       "componentslist" : "",
       "componentscost" : 0,
       "preview" : false

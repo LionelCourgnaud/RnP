@@ -6878,8 +6878,8 @@ export const ALL_SORTS = [
         },
         "materials": {
             "value": "Un rayon de miel et de la poussière de jade d'une valeur de 10  po, que le sort consume",
-            "consumed": false,
-            "cost": 0
+            "consumed": true,
+            "cost": 10
         },
         "scaling": {
             "mode": "none",

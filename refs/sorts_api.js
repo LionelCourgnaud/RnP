@@ -1,15 +1,4 @@
-    // "jusqu’à dissipation",
-    // "jusqu'à utilisation",
-    // "jusqu'à dissipation",
-    // "jusqu’à dissipation ou déclenchement",
-    // "spéciale",
-    // "jusqu’à déclenchement ou dissipation",
-    // "jusqu’à la fin du prochain tour du lanceur"
-
-
-
 import { ALL_SORTS } from "./sorts.js"
-
 
 const CONVERT = {
     // "min" : CUSTOM_SYSTEM.utils.getKey(CUSTOM_SYSTEM.durationTypes,"Minute(s)"),
@@ -21,7 +10,6 @@ const CONVERT = {
     "jusqu’à dissipation ou déclenchement" : "dissipcast",
     "jusqu’à déclenchement ou dissipation" : "dissipcast",
     "jusqu’à la fin du prochain tour du lanceur" : "nextturn"
-
 }
 
 export class Translation {  
@@ -38,8 +26,9 @@ export class Translation {
     }
 
     wrapForeign(keysrc,keydst) {
-        if(CONVERT[keysrc]!=null)
+        if(CONVERT[keysrc]!=null) {
             return CONVERT[keysrc];
+        }
         return keydst;
     }
 

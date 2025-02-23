@@ -1,9 +1,71 @@
-        <div class="col-2 flex-grow-1 m-0 p-0">
-                    <button class="preview">
-                        {{#if system.preview}}
-                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/scroll_light.png" alt="Editer">
-                        {{else}}
-                        <img class="xsmall-img m-0 p-0" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
-                        {{/if}}
-                    </button>
-                </div>
+<!-- ANCIEN -->
+
+<div class="form-group"> 
+    <label for="components">Composant(s)</label>
+    <div id="components">
+        {{#each config.componentsTypes as |name val|}}
+            <!-- {{this}} -->
+            {{#if (inside ../system.components val)}}
+                <input class="form-check-input component-click" type="checkbox" name="components" id="{{name}}" value="{{val}}" checked>  
+            {{else}}
+                <input class="form-check-input component-click" type="checkbox" name="components" id="{{name}}" value="{{val}}"> 
+            {{/if}}
+            <label class="form-check-label">{{name}}</label> 
+        {{/each}}
+    </div>
+</div>
+
+<!-- TEMPS D'INCANTATIONS -->
+<div class="form-group incant">
+    <label for="incantation">Temps d'incantation</label>
+    <!-- 25: "heure(s)"",30: "minute(s)",32: "round(s)", -->
+    {{#if (eq system.incantationtype 25 30 32)}}
+        <input type="number" name="system.incantationvalue" value="{{system.incantationvalue}}" data-dtype="Number"/>
+    {{/if}}
+    <select name="system.incantationtype">
+        {{selectOptions config.incantationTypes selected=system.incantationtype}}
+    </select>
+</div>
+
+<br><br><br>
+        <!-- DOMMAGES -->
+        <div class="form-group">
+            <label for="damages">Dommages</label>
+            <input type="text" name="system.damages" id="damages" value="{{system.damages}}">
+        </div>
+        <!-- EFFET -->
+        <div class="form-group">
+            <label for="system.effect">Effet :</label><br>
+            <textarea class="form-textarea" id="system.effect" name="system.effect" rows="6" cols="50">{{system.effect}}</textarea>
+        </div>
+        <!-- LIMITATION -->
+        <div class="form-group">
+            <label for="system.limits">Limitation :</label><br>
+            <textarea class="form-textarea" id="system.limits" name="system.limits" rows="6" cols="50">{{system.limits}}</textarea>
+        </div>
+    </div>
+<br><br>
+
+
+
+<!-- NOUVEAUX -->
+
+
+
+<!-- TEMPS D'INCANTATION -->
+<div class="container py-1">
+    <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
+        <div class="col-3 m-0 p-0">
+            <label class="col-3 m-0 p-0" for="spelllevel">Niveau</label>
+        </div>
+        <div>
+            {{#if system.preview}}
+                <select name="system.spellLevel">
+                    {{selectOptions config.spellLevels selected=system.spellLevel}}
+                </select>
+            {{else}}
+                <p class="form-content col-9 m-0 p-0">{{array config.spellLevels system.spellLevel}}</p>
+            {{/if}}
+        </div>
+    </div>
+</div>  

@@ -101,21 +101,31 @@ async function createSortsCompendium() {
 
     let translated = new Translation();
 
-    // ALL_SORTS.forEach(element => {
-    //     // console.log(element.duration.units);
-    //     // translated.convert(element.duration.units);
-    //     translated.giveme("duration.units");
+    // translated.all_sorts().forEach(element => {
+    //     if(element.duration.units=="min") {
+    //         console.log("--");
+    //         console.log(translated.giveme("duration.value"));
+    //         console.log("--");
+    //         console.log(translated.giveme("duration.units"));
+    //         exit();
+    //     }
     // });
 
-    // console.log(translated.giveme("duration.display", true));
+    // "somatic": true,
+    // "material": true,
+    // "ritual": false,
+    // "concentration": false
+
+    // console.log(translated.giveme("duration.value"));
+    // console.log(translated.giveme("castingTime.units"));
     // console.log(translated.all_sorts()[0]);
     // return;
 
     for(let i=0;i<translated.all_sorts().length;i++) //ALL_SORTS.length
     {
-        // if(ALL_SORTS[i].title!="Aspersion acide") {
+        // if(translated.all_sorts()[i].title!="Agrandir/Rétrécir") {
         //     continue;
-        // };
+        // }
 
         const spellItem = {
             name: translated.all_sorts()[i].title,
@@ -126,10 +136,31 @@ async function createSortsCompendium() {
                 "title" : translated.all_sorts()[i].title,
                 "duration": {
                     "value": translated.all_sorts()[i].duration.value,
-                    "units": translated.wrapForeign(translated.all_sorts()[i].duration.display,translated.all_sorts()[i].duration.units),
+                    "units": translated.wrapForeign(translated.all_sorts()[i].duration.display,
+                    translated.wrap(translated.all_sorts()[i].duration.units)),
                 },
                 "appearance": translated.all_sorts()[i].appearance,
                 "classes" : translated.all_sorts()[i].classes,
+                "components": {
+                    "vocal": translated.all_sorts()[i].components.vocal,
+                    "somatic": translated.all_sorts()[i].components.somatic,
+                    "material": translated.all_sorts()[i].components.material,
+                    "ritual": translated.all_sorts()[i].components.ritual,
+                    "concentration": translated.all_sorts()[i].components.concentration
+                },
+                "materials": {
+                    "value": translated.all_sorts()[i].materials.value,
+                    "consumed": translated.all_sorts()[i].materials.consumed,
+                    "cost": translated.all_sorts()[i].materials.cost
+                },
+                "castingTime" : {
+                    "value" : translated.all_sorts()[i].castingTime.value,
+                    "units" : translated.all_sorts()[i].castingTime.units,
+                    "display" : translated.all_sorts()[i].castingTime.display
+                },
+
+
+
                 // OLD STRUCTURE
                 "name" : translated.all_sorts()[i].title,
                 "spellLevel": translated.all_sorts()[i].level,
@@ -156,6 +187,7 @@ async function createSortsCompendium() {
                 "preview" : false
             }
         }
+
         try {
             // Vérifier si la race existe déjà dans le compendium
             const index = await pack.getIndex();

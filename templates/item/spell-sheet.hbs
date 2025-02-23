@@ -1,6 +1,6 @@
-<form class="{{cssClass}} flexcol" autocomplete="off">
-    <header class="item-spell-header m-0 p-0">
-        <div class ="container item-spell-header flex-grow-1 m-0 p-0">
+<form class="{{cssClass}} container m-0 p-0" autocomplete="off">
+    <header class="m-0 p-0">
+        <div class ="item-spell-header m-0 p-0">
             <div class="d-flex justify-content-start align-items-center flex-grow-1">
                 <div class="col-2  m-0 p-2">
                 {{#if system.preview}}
@@ -30,94 +30,69 @@
             </div>
         </div>
     </header>   
-
     <br>
-    <!-- APPARENCE -->
-    <div class="container py-1">
-        <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
-            <label class="col-3 m-0 p-0">Apparence</label>
-            {{#if system.preview}}
-                <textarea class="form-textarea" id="system.appearance" name="system.appearance" rows="2">{{system.appearance}}</textarea>
-            {{else}}
-                <p class="form-content col-9 m-0 p-0">{{system.appearance}}</p>
-            {{/if}}
-        </div>
-    </div>
-    <!-- CLASSES -->
-    <div class="container py-1">
-        <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
-            <div class="col-3 m-0 p-0">
-                <label for="classes">Classe(s)</label>
-            </div>
-            {{#if system.preview}}
-            <div class="col-9 m-0 p-0 d-flex flex-wrap">
-                {{#each config.classeTypes as |name val|}}
-                    <div class="col-4 p-0 d-flex align-items-center">
-                        <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" {{isChecked ../system.classes val}}>
-                        <label class="form-check-label ms-1" for="{{name}}">{{name}}</label>
-                    </div>
-                {{/each}}
-            </div>
-            {{else}}
-            <div class="col-9 p-0 m-0 text-start">
-                <p class="flex-wrap p-0 m-0">{{array config.classeTypes system.classes}}</p>
-            </div>
-            {{/if}}
-        </div>
-    </div>
-    <!-- NIVEAU -->
-    <div class="container py-1">
-        <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
-            <div class="col-3 m-0 p-0">
-                <label class="col-3 m-0 p-0" for="spelllevel">Niveau</label>
-            </div>
-            <div>
+    <div class="container">
+        <!-- APPARENCE -->
+        <div class="container py-1">
+            <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
+                <label class="col-3 m-0 p-0">Apparence</label>
                 {{#if system.preview}}
-                    <select name="system.spellLevel">
-                        {{selectOptions config.spellLevels selected=system.spellLevel}}
-                    </select>
+                    <textarea class="form-textarea" id="system.appearance" name="system.appearance" rows="2">{{system.appearance}}</textarea>
                 {{else}}
-                    <p class="form-content col-9 m-0 p-0">{{array config.spellLevels system.spellLevel}}</p>
+                    <p class="form-content col-9 m-0 p-0">{{system.appearance}}</p>
                 {{/if}}
             </div>
         </div>
-    </div>  
-    <!-- DUREE -->
-    <div class="form-group container py-1">
-        <div class="form-group col-3 align-items-start justify-content-start m-0 p-0">
-            <div class="m-0 p-0">
-                <label for="duration">Durée</label>
-            </div>
-        </div>
-        <div class="form-content col-9 m-0 p-0">
-            <!-- SELECT -->
-            {{#if system.preview}}    
-                <!-- SELECT avec VALEUR -->  
-                {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
-                    <input type="form-input number" name="system.duration.value" value="{{system.duration.value}}" data-dtype="Number"/>
-                    <select class="form-drop-small duration" name="system.duration.units">
-                {{else}}
-                    <!-- SELECT sans VALEUR {{system.duration.display}}-->
-                    <select class="duration" name="system.duration.units">
-                {{/if}}
-                    {{selectOptions config.durationTypes selected=system.duration.units}}
-                </select>
-            {{else}}
-                <div class="m-0 p-0">
-                    {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
-                        <p class="form-content m-0 p-0">{{system.duration.value}} {{array config.durationTypes system.duration.units}}</p>
+        <!-- NIVEAU -->
+        <div class="container py-1">
+            <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
+                <div class="col-3 m-0 p-0">
+                    <label class="col-3 m-0 p-0" for="spelllevel">Niveau</label>
+                </div>
+                <div>
+                    {{#if system.preview}}
+                        <select name="system.castingTime.units">
+                            {{selectOptions config.spellLevels selected=system.spellLevel}}
+                        </select>
                     {{else}}
-                        <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}}</p>
+                        <p class="form-content col-9 m-0 p-0">{{array config.spellLevels system.spellLevel}}</p>
                     {{/if}}
                 </div>
-            {{/if}}
+            </div>
+        </div>  
+        <!-- DUREE -->
+        <div class="form-group container py-1">
+            <div class="form-group col-3 align-items-start justify-content-start m-0 p-0">
+                <div class="m-0 p-0">
+                    <label for="duration">Durée</label>
+                </div>
+            </div>
+            <div class="form-content col-9 m-0 p-0">
+                <!-- SELECT -->
+                {{#if system.preview}}    
+                    <!-- SELECT avec VALEUR -->  
+                    {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
+                        <input type="form-input number" name="system.duration.value" value="{{system.duration.value}}" data-dtype="Number"/>
+                        <select class="form-drop-small duration" name="system.duration.units">
+                    {{else}}
+                        <!-- SELECT sans VALEUR {{system.duration.display}}-->
+                        <select class="duration" name="system.duration.units">
+                    {{/if}}
+                        {{selectOptions config.durationTypes selected=system.duration.units}}
+                    </select>
+                {{else}}
+                    <div class="m-0 p-0">
+                        {{#if (eq system.duration.units "minute" "hour" "day" "round")}}
+                            <p class="form-content m-0 p-0">{{system.duration.value}} {{array config.durationTypes system.duration.units}}</p>
+                        {{else}}
+                            <p class="form-content m-0 p-0">{{array config.durationTypes system.duration.units}}</p>
+                        {{/if}}
+                    </div>
+                {{/if}}
+            </div>
         </div>
-    </div>
-
-    <br><br><br>
-
         <!-- COMPOSANTS -->
-        <div class="form-group"> 
+        <div class="form-group container py-1"> 
             <label for="components">Composant(s)</label>
             <div id="components">
                 {{#each config.componentsTypes as |name val|}}
@@ -131,35 +106,29 @@
                 {{/each}}
             </div>
         </div>
-        <!-- DOMMAGES -->
-        <div class="form-group">
-            <label for="damages">Dommages</label>
-            <input type="text" name="system.damages" id="damages" value="{{system.damages}}">
-        </div>
-        <!-- TEMPS D'INCANTATIONS -->
-        <div class="form-group incant">
-            <label for="incantation">Temps d'incantation</label>
-            <!-- 25: "heure(s)"",30: "minute(s)",32: "round(s)", -->
-            {{#if (eq system.incantationtype 25 30 32)}}
-                <input type="number" name="system.incantationvalue" value="{{system.incantationvalue}}" data-dtype="Number"/>
-            {{/if}}
-            <select name="system.incantationtype">
-                {{selectOptions config.incantationTypes selected=system.incantationtype}}
-            </select>
-        </div>
-        <!-- EFFET -->
-        <div class="form-group">
-            <label for="system.effect">Effet :</label><br>
-            <textarea class="form-textarea" id="system.effect" name="system.effect" rows="6" cols="50">{{system.effect}}</textarea>
-        </div>
-        <!-- LIMITATION -->
-        <div class="form-group">
-            <label for="system.limits">Limitation :</label><br>
-            <textarea class="form-textarea" id="system.limits" name="system.limits" rows="6" cols="50">{{system.limits}}</textarea>
+        <!-- CLASSES -->
+        <div class="container py-1">
+            <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
+                <div class="col-3 m-0 p-0">
+                    <label for="classes">Classe(s)</label>
+                </div>
+                {{#if system.preview}}
+                <div class="col-9 m-0 p-0 d-flex flex-wrap">
+                    {{#each config.classeTypes as |name val|}}
+                        <div class="col-4 p-0 d-flex align-items-center">
+                            <input class="form-check-input classe-click" type="checkbox" name="classes" id="{{name}}" value="{{val}}" {{isChecked ../system.classes val}}>
+                            <label class="form-check-label ms-1" for="{{name}}">{{name}}</label>
+                        </div>
+                    {{/each}}
+                </div>
+                {{else}}
+                <div class="col-9 p-0 m-0 text-start">
+                    <p class="flex-wrap p-0 m-0">{{array config.classeTypes system.classes}}</p>
+                </div>
+                {{/if}}
+            </div>
         </div>
     </div>
-
-    <br><br>
     <!-- DEBUG -->
     <!-- <div><label for="classes"> ============================================ </label></div>
     <div><label for="classes">Classe(s) : {{system.classes}}</label></div>
