@@ -117,13 +117,13 @@ async function createSortsCompendium() {
     // "concentration": false
 
     // console.log(translated.giveme("duration.value"));
-    // console.log(translated.giveme("castingTime.units"));
+    // console.log(translated.giveme("sortCastingTime"));
     // console.log(translated.all_sorts()[0]);
     // return;
 
     for(let i=0;i<translated.all_sorts().length;i++) //ALL_SORTS.length
     {
-        // if(translated.all_sorts()[i].title!="Agrandir/Rétrécir") {
+        // if(translated.all_sorts()[i].title!="Allié planaire") {
         //     continue;
         // }
 
@@ -158,8 +158,9 @@ async function createSortsCompendium() {
                     "units" : translated.all_sorts()[i].castingTime.units,
                     "display" : translated.all_sorts()[i].castingTime.display
                 },
-
-
+                "sortCastingTime" : translated.all_sorts()[i].sortCastingTime,
+                "sortCastingTimeUnit" : translated.parseCastingTime(translated.all_sorts()[i].sortCastingTime)[0],
+                "sortCastingTimeValue" : translated.parseCastingTime(translated.all_sorts()[i].sortCastingTime)[1],
 
                 // OLD STRUCTURE
                 "name" : translated.all_sorts()[i].title,

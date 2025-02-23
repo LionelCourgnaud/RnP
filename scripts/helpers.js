@@ -10,6 +10,10 @@ export const registerHandlebarsHelpers = () => {
         return result;
     }); 
 
+    Handlebars.registerHelper('format', function(chaine) {  
+        return chaine.replace(/_/g,"");
+    }); 
+
     // Include (array)
     Handlebars.registerHelper('inside', function(v1, v2) {
         return v1.includes(v2.toString());

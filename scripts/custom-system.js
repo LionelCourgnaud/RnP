@@ -34,6 +34,13 @@ CUSTOM_SYSTEM.castingTimes = {
     "reaction": "Réaction",
 };
 
+CUSTOM_SYSTEM.castingUnits = {
+    0 : "réaction",
+    1 : "action",
+    2 : "minute(s)",
+    3 : "heure(s)"
+}
+
 CUSTOM_SYSTEM.spellLevels = {
     0: "0 (Tour de Magie)",
     1: "1",

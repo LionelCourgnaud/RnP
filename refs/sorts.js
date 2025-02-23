@@ -62887,7 +62887,7 @@ export const ALL_SORTS = [
                         },
                         {
                             "type": "text",
-                            "value": " Emplacement de niveau 5 ou plus : +30 m d’arête du cube par niveau d’emplacement supplémentaire."
+                            "value": " Emplacement de niveau 5 ou plus : +30 m d’arête du cube par niveau d’emplacement supplémentaire."
                         }
                     ]
                 }

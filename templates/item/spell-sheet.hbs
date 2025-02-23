@@ -18,14 +18,17 @@
                         {{/if}}
                     </h1>
                 </div>
-                <div class="d-flex m-0 p-0 position-absolute-preview justify-content-center align-items-center">
-                    <button class="preview m-0 p-0">
+                <div class="d-flex m-0 p-0 position-absolute preview">
+                    <button class="d-flex m-0 p-0 justify-content-center align-items-center">
                         {{#if system.preview}}
-                        <img class="xxsmall-img" src="systems/RnP/assets/icons/edit/scroll_light.svg" alt="Editer">
+                            <img class="xxsmall-img" src="systems/RnP/assets/icons/edit/scroll_light.svg" alt="Editer">
                         {{else}}
-                        <img class="xxsmall-img" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
+                            <img class="xxsmall-img" src="systems/RnP/assets/icons/edit/feather_light.png" alt="Editer">
                         {{/if}}
                     </button>
+                </div>
+                <div class="d-flex m-0 p-0 position-absolute debug">
+                    <button class=""></button>
                 </div>
             </div>
         </div>
@@ -43,6 +46,27 @@
                 {{/if}}
             </div>
         </div>
+        <!-- TEMPS D'INCANTATION -->
+        <div class="container py-1">
+            <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
+                <label class="col-3 m-0 p-0">Incantation</label>
+                    {{#if system.preview}}
+                        <select name="system.sortSastingTimeUnit">
+                            {{selectOptions config.castingUnits selected=system.sortCastingTimeUnit}}
+                        </select>
+                    {{else}}
+                        {{#if (eq system.sortCastingTimeUnit 0)}}
+                            <p class="form-content col-9 m-0 p-0">{{format system.castingTime.display}}</p>
+                        {{else}}
+                            {{#if (eq system.sortCastingTimeValue 0)}}
+                                <p class="form-content col-9 m-0 p-0">1 {{array config.castingUnits system.sortCastingTimeUnit}}</p>
+                            {{else}}
+                                <p class="form-content col-9 m-0 p-0">{{system.sortCastingTimeValue}} {{array config.castingUnits system.sortCastingTimeUnit}}</p>
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+            </div>
+        </div>  
         <!-- NIVEAU -->
         <div class="container py-1">
             <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
@@ -130,14 +154,14 @@
         </div>
     </div>
     <!-- DEBUG -->
-    <!-- <div><label for="classes"> ============================================ </label></div>
-    <div><label for="classes">Classe(s) : {{system.classes}}</label></div>
-    <div><label for="spelllevel">Niveau : {{system.spellLevel}}</label></div>
-    <div><label for="spelllevel">Durée : {{system.durationtype}}</label></div>
-    <div><label for="incantation">Temps d'incantation :  type {{system.incantationtype}}  value {{system.incantationvalue}}</label></div>
-    <div><label for="components">Composants : {{system.components}}</label></div>
+    <br><br>
     <div><label for="classes"> ============================================ </label></div>
-    <br><br>  -->
+    <div><label for="components">Casting Time Value : {{system.castingTime.value}}</label></div>
+    <div><label for="components">Casting Time Units: {{system.castingTime.units}}</label></div>
+    <div><label for="components">Casting Time Display : {{system.castingTime.display}}</label></div>
+    <div><label for="components">Casting sortCastingTime : {{system.sortCastingTime}}</label></div>
+    <div><label for="components">Casting sortCastingTime Unit : {{system.sortCastingTimeUnit}}</label></div>
+    <div><label for="components">Casting sortCastingTime Value : {{system.sortCastingTimeValue}}</label></div>
 </form>
 
 

@@ -106,6 +106,9 @@
         "consumed": false,
         "cost": 0
       },
+      "sortCastingTime" : "",
+      "sortCastingTimeValue" : 0,
+      "sortCastingTimeUnit" : 0,
 
 
       "name" : "Nom du Sort",

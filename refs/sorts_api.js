@@ -9,7 +9,7 @@ const CONVERT = {
     "jusqu'à dissipation" : "dissip",
     "jusqu’à dissipation ou déclenchement" : "dissipcast",
     "jusqu’à déclenchement ou dissipation" : "dissipcast",
-    "jusqu’à la fin du prochain tour du lanceur" : "nextturn"
+    "jusqu’à la fin du prochain tour du lanceur" : "nextturn",
 }
 
 export class Translation {  
@@ -31,6 +31,15 @@ export class Translation {
         }
         return keydst;
     }
+
+    parseCastingTime(value) {
+        let parsed = value.split(".");
+        console.log(parsed);
+        let result = [];
+        result.push(parseInt(parsed[0]));
+        result.push(parsed.length > 1 ? parseInt(parsed[1]) : 0);
+        return result;
+    } 
 
     giveme(keys) {
         let result = [];
@@ -57,9 +66,23 @@ export class Translation {
         return result;
     }
 
-    insertValue(tab,val) {
-        if (val !== undefined && !tab.includes(val)) {
-            tab.push(val);
+    // insertValue(tab,val) {
+    //     if (val !== undefined && !tab.includes(val)) {
+    //         tab.push(val);
+    //     }
+    //     else
+    //     {
+    //         tab[val] += tab[val];
+    //     }
+    // }
+
+    insertValue(tab, val) {
+        if (val !== undefined) {
+            if (tab[val] === undefined) {
+                tab[val] = 1;
+            } else {
+                tab[val] += 1;
+            }
         }
     }
 }
