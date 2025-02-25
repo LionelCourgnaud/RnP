@@ -68,14 +68,24 @@
             <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
                 <label class="col-3 m-0 p-0">Incantation</label>
                     {{#if system.preview}}
-                        <select name="system.sortCastingTimeUnit">
-                            {{selectOptions config.castingTimes selected=system.sortCastingTimeUnit}}
-                        </select>
-                    {{else}}
-                        <p class="form-content col-9 m-0 p-0">{{system.sortCastingTimeValue}} {{array config.castingTimes system.sortCastingTimeUnit}}
-                            {{#if system.sortCastingTimeCondition}}. {{format system.sortCastingTimeCondition}}{{/if}}
-                        </p>
-                    {{/if}}
+                    <div class="d-flex container col-1 m-0 p-0">
+                            <!-- SELECT avec VALEUR -->  
+                            <select name="system.sortCastingTimeUnit">
+                                {{selectOptions config.castingTimes selected=system.sortCastingTimeUnit}}
+                            </select>
+                            {{#if (eq system.sortCastingTimeUnit "reaction")}}
+                                <input type="form-input col-11 m-0 p-0" name="system.sortCastingTimeCondition" 
+                                    value="{{system.sortCastingTimeCondition}}" data-dtype="Text"/>
+                            {{/if}}
+                        </div>
+                        <div class="">
+                            {{else}}
+                                <p class="form-content col-11 m-0 p-0">{{system.sortCastingTimeValue}} {{array config.castingTimes system.sortCastingTimeUnit}}
+                                    {{#if system.sortCastingTimeCondition}}. {{format system.sortCastingTimeCondition}}{{/if}}
+                                </p>
+                            {{/if}}
+                        </div>
+                    </div>
             </div>
         </div>  
         <!-- DUREE -->
