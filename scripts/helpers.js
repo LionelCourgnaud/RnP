@@ -11,8 +11,11 @@ export const registerHandlebarsHelpers = () => {
     }); 
 
     Handlebars.registerHelper('format', function(chaine) {  
+        if(!chaine) {
+            chaine = "<error>";
+        }
         return chaine.replace(/_/g,"");
-    }); 
+    });    
 
     // Include (array)
     Handlebars.registerHelper('inside', function(v1, v2) {

@@ -1,4 +1,5 @@
 window.CUSTOM_SYSTEM = {};
+// export const CUSTOM_SYSTEM = window.CUSTOM_SYSTEM || {};
 
 // --------------------------
 //  Liste pour les sorts
@@ -26,21 +27,25 @@ CUSTOM_SYSTEM.componentsSpecial = {
     "concentration": "Concentration"
 }
 
-CUSTOM_SYSTEM.castingTimes = {
-    "action": "Action",
-    "minute": "Minute(s)",
-    "hour": "Heures",
-    "bonus": "Bonus",
-    "reaction": "Réaction",
-};
-
-CUSTOM_SYSTEM.castingUnits = {
-    0 : "réaction",
+// convertir les valeurs de l'API
+CUSTOM_SYSTEM.castingUnitsFromAPI = {
+    0 : "reaction",
     1 : "action",
-    2 : "minute(s)",
-    3 : "heure(s)"
+    2 : "minute",
+    3 : "hour",
+    4 : "bonus"
 }
 
+// display
+CUSTOM_SYSTEM.castingTimes = {
+    "action": "action",
+    "minute": "minute(s)",
+    "hour": "heure(s)",
+    "bonus": "action bonus",
+    "reaction": "réaction",
+};
+
+// Convertir les valeurs pour l'UI
 CUSTOM_SYSTEM.spellLevels = {
     0: "0 (Tour de Magie)",
     1: "1",

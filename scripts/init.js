@@ -2,6 +2,7 @@ import { CustomActor } from "./actor/actor-sheet.js";
 import { CustomItemSheet } from "./item/item-sheet.mjs";
 import { registerHandlebarsHelpers } from "./helpers.js";
 import { Translation } from "../refs/sorts_api.js";
+// import { CUSTOM_SYSTEM } from "./custom-system.js"
 
 Hooks.once('init', async function() 
 {
@@ -127,13 +128,14 @@ async function createSortsCompendium() {
         //     continue;
         // }
 
-        const spellItem = {
+        let spellItem = {
             name: translated.all_sorts()[i].title,
             type: "spell",
             img: 'systems/RnP/assets/icons/edit/scroll_light.svg',
             system : {
                 // NEW STRUCTURE
                 "title" : translated.all_sorts()[i].title,
+                "level": translated.all_sorts()[i].level,
                 "duration": {
                     "value": translated.all_sorts()[i].duration.value,
                     "units": translated.wrapForeign(translated.all_sorts()[i].duration.display,
@@ -153,14 +155,7 @@ async function createSortsCompendium() {
                     "consumed": translated.all_sorts()[i].materials.consumed,
                     "cost": translated.all_sorts()[i].materials.cost
                 },
-                "castingTime" : {
-                    "value" : translated.all_sorts()[i].castingTime.value,
-                    "units" : translated.all_sorts()[i].castingTime.units,
-                    "display" : translated.all_sorts()[i].castingTime.display
-                },
-                "sortCastingTime" : translated.all_sorts()[i].sortCastingTime,
-                "sortCastingTimeUnit" : translated.parseCastingTime(translated.all_sorts()[i].sortCastingTime)[0],
-                "sortCastingTimeValue" : translated.parseCastingTime(translated.all_sorts()[i].sortCastingTime)[1],
+  
 
                 // OLD STRUCTURE
                 "name" : translated.all_sorts()[i].title,
@@ -188,6 +183,31 @@ async function createSortsCompendium() {
                 "preview" : false
             }
         }
+
+        // SORTS - Construction
+        let unitFromAPI = translated.parseCastingTime(translated.all_sorts()[i].sortCastingTime)[0];    // Number
+        let valueFromAPI =  translated.parseCastingTime(translated.all_sorts()[i].sortCastingTime)[1];  // Number
+        spellItem.system["sortCastingTimeCondition"] = null;
+        // "sortCastingTime" : "" | "sortCastingTimeValue" : "" | "sortCastingTimeUnit" : 0
+        // REACTION
+        if (unitFromAPI === 0 && valueFromAPI === 0) {
+            unitFromAPI = 0;
+            valueFromAPI = 1;
+            spellItem.system["sortCastingTimeCondition"] = translated.all_sorts()[i].castingTime.condition;
+        }
+        // BONUS
+        else if (unitFromAPI === 0 && valueFromAPI === 1) {
+            unitFromAPI = 4;
+        }
+        // // ACTION
+        else if (unitFromAPI === 1) {
+            valueFromAPI = 1;
+        }
+        spellItem.system["sortCastingTimeUnit"] = CUSTOM_SYSTEM.castingUnitsFromAPI[unitFromAPI];
+        spellItem.system["sortCastingTimeValue"] = valueFromAPI;
+
+
+        
 
         try {
             // Vérifier si la race existe déjà dans le compendium

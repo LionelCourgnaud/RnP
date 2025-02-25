@@ -35,6 +35,23 @@
     </header>   
     <br>
     <div class="container">
+        <!-- NIVEAU -->
+        <div class="container py-1">
+            <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
+                <div class="col-3 m-0 p-0">
+                    <label class="col-3 m-0 p-0" for="spelllevel">Niveau</label>
+                </div>
+                <div>
+                    {{#if system.preview}}
+                        <select name="system.level">
+                            {{selectOptions config.spellLevels selected=system.level}}
+                        </select>
+                    {{else}}
+                        <p class="form-content col-9 m-0 p-0">{{array config.spellLevels system.level}}</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div>  
         <!-- APPARENCE -->
         <div class="container py-1">
             <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
@@ -51,37 +68,14 @@
             <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
                 <label class="col-3 m-0 p-0">Incantation</label>
                     {{#if system.preview}}
-                        <select name="system.sortSastingTimeUnit">
-                            {{selectOptions config.castingUnits selected=system.sortCastingTimeUnit}}
+                        <select name="system.sortCastingTimeUnit">
+                            {{selectOptions config.castingTimes selected=system.sortCastingTimeUnit}}
                         </select>
                     {{else}}
-                        {{#if (eq system.sortCastingTimeUnit 0)}}
-                            <p class="form-content col-9 m-0 p-0">{{format system.castingTime.display}}</p>
-                        {{else}}
-                            {{#if (eq system.sortCastingTimeValue 0)}}
-                                <p class="form-content col-9 m-0 p-0">1 {{array config.castingUnits system.sortCastingTimeUnit}}</p>
-                            {{else}}
-                                <p class="form-content col-9 m-0 p-0">{{system.sortCastingTimeValue}} {{array config.castingUnits system.sortCastingTimeUnit}}</p>
-                            {{/if}}
-                        {{/if}}
+                        <p class="form-content col-9 m-0 p-0">{{system.sortCastingTimeValue}} {{array config.castingTimes system.sortCastingTimeUnit}}
+                            {{#if system.sortCastingTimeCondition}}. {{format system.sortCastingTimeCondition}}{{/if}}
+                        </p>
                     {{/if}}
-            </div>
-        </div>  
-        <!-- NIVEAU -->
-        <div class="container py-1">
-            <div class="d-flex form-group align-items-start justify-content-start m-0 p-0">
-                <div class="col-3 m-0 p-0">
-                    <label class="col-3 m-0 p-0" for="spelllevel">Niveau</label>
-                </div>
-                <div>
-                    {{#if system.preview}}
-                        <select name="system.castingTime.units">
-                            {{selectOptions config.spellLevels selected=system.spellLevel}}
-                        </select>
-                    {{else}}
-                        <p class="form-content col-9 m-0 p-0">{{array config.spellLevels system.spellLevel}}</p>
-                    {{/if}}
-                </div>
             </div>
         </div>  
         <!-- DUREE -->
@@ -156,12 +150,10 @@
     <!-- DEBUG -->
     <br><br>
     <div><label for="classes"> ============================================ </label></div>
-    <div><label for="components">Casting Time Value : {{system.castingTime.value}}</label></div>
-    <div><label for="components">Casting Time Units: {{system.castingTime.units}}</label></div>
-    <div><label for="components">Casting Time Display : {{system.castingTime.display}}</label></div>
     <div><label for="components">Casting sortCastingTime : {{system.sortCastingTime}}</label></div>
     <div><label for="components">Casting sortCastingTime Unit : {{system.sortCastingTimeUnit}}</label></div>
     <div><label for="components">Casting sortCastingTime Value : {{system.sortCastingTimeValue}}</label></div>
+    <div><label for="components">Casting string : {{system.sortCastingTimeValue}} {{system.sortCastingTimeUnit}}</label></div>
 </form>
 
 

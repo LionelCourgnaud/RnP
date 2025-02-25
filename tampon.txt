@@ -15,6 +15,16 @@
     </div>
 </div>
 
+{{#if (eq system.sortCastingTimeUnit 0)}}
+<p class="form-content col-9 m-0 p-0">{{format system.castingTime.display}}</p>
+{{else}}
+{{#if (eq system.sortCastingTimeValue 0)}}
+    <p class="form-content col-9 m-0 p-0">1 {{array config.castingUnits system.sortCastingTimeUnit}}</p>
+{{else}}
+    <p class="form-content col-9 m-0 p-0">{{system.sortCastingTimeValue}} {{array config.castingUnits system.sortCastingTimeUnit}}</p>
+{{/if}}
+{{/if}}
+
 <!-- TEMPS D'INCANTATIONS -->
 <div class="form-group incant">
     <label for="incantation">Temps d'incantation</label>

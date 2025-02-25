@@ -34,12 +34,13 @@ export class Translation {
 
     parseCastingTime(value) {
         let parsed = value.split(".");
-        console.log(parsed);
         let result = [];
         result.push(parseInt(parsed[0]));
         result.push(parsed.length > 1 ? parseInt(parsed[1]) : 0);
         return result;
     } 
+
+
 
     giveme(keys) {
         let result = [];

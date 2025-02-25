@@ -84,6 +84,7 @@
     "spell": {  
       "title" : "",
       "classes" : [],
+      "level" : 0,
       "duration": {
         "value": 0,
         "units": ""
@@ -96,19 +97,18 @@
         "ritual": null,
         "concentration": null
       },
-      "castingTime" : {
-        "value" : 0,
-        "units" : "",
-        "display" : "" 
-      },
       "materials": {
         "value": null,
         "consumed": false,
         "cost": 0
       },
-      "sortCastingTime" : "",
-      "sortCastingTimeValue" : 0,
-      "sortCastingTimeUnit" : 0,
+      "sortCastingTimeCondition" : "",
+      "sortCastingTimeValue" : "",
+      "sortCastingTimeUnit" : "",
+
+
+
+
 
 
       "name" : "Nom du Sort",
