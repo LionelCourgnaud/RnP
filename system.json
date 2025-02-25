@@ -37,6 +37,6 @@
   "primaryTokenAttribute": "resources.health",
   "secondaryTokenAttribute": "resources.power",
   "url": "https://github.com/LionelCourgnaud/RnP.git",
-  "manifest": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/main/system.json",
+  "manifest": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/releases/system.json",
   "download": "https://raw.githubusercontent.com/LionelCourgnaud/RnP/refs/heads/releases/archives/v0.1.5.zip"
 }
